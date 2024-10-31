@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_g5bdr"]
 [ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="1_spm5a"]
-[ext_resource type="PackedScene" uid="uid://c8063xc1xbjvy" path="res://Boxes/cube.tscn" id="3_3a5ug"]
+[ext_resource type="PackedScene" uid="uid://c8063xc1xbjvy" path="res://cube.tscn" id="3_3a5ug"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_bpdx6"]
 [ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Background/background.tscn" id="6_m0tdn"]
-[ext_resource type="PackedScene" uid="uid://dwyb5kn72tadd" path="res://game_ui.tscn" id="6_sd28d"]
+[ext_resource type="PackedScene" uid="uid://dwyb5kn72tadd" path="res://sim_ui.tscn" id="6_sd28d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia346"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,6 +35,9 @@ current = true
 
 [node name="PickableObject" parent="." instance=ExtResource("3_3a5ug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0248768, 1.11983, -0.667623)
+
+[node name="Label3D" type="Label3D" parent="PickableObject"]
+offset = Vector2(0, -30)
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("5_bpdx6")]
 process_mode = 4

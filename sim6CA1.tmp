@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwyb5kn72tadd"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_4ed81"]
+
+[node name="GameUI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ed81")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.701961, 0.807843, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Start_Sim" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Start Simulation
+"
+
+[node name="Object_Slider" type="HSlider" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 2.0
+max_value = 10.0
+value = 2.0
+
+[node name="List" type="TextEdit" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Enter a list"
+
+[node name="Random_List" type="CheckButton" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Generate a random list"
+alignment = 1
