@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://de4uxw2mqscai"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_p42iy"]
+[ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="2_k8eou"]
+[ext_resource type="PackedScene" uid="uid://djkui8l4yreqh" path="res://cube.tscn" id="3_ymy4v"]
+[ext_resource type="PackedScene" uid="uid://c3lu6fo0no58d" path="res://temp.tscn" id="4_n24m3"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_apdrd"]
+[ext_resource type="PackedScene" uid="uid://bbdujf6pj2cqf" path="res://regenerate_ui.tscn" id="6_kwy70"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e0jtf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_i8x68"]
+sky_material = SubResource("ProceduralSkyMaterial_e0jtf")
+
+[sub_resource type="Environment" id="Environment_plip5"]
+background_mode = 2
+sky = SubResource("Sky_i8x68")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s71vx"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bast"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tfrr"]
+albedo_color = Color(0.345448, 0.377812, 0.341497, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y23rg"]
+material = SubResource("StandardMaterial3D_4tfrr")
+size = Vector3(4, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j011u"]
+size = Vector3(4, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_60e3a"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_25qdw"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjra5"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_25qdw")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8r0yu"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_p42iy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_plip5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_s71vx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7583, -0.250031, -0.130043)
+mesh = SubResource("BoxMesh_6bast")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("2_k8eou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6977, -0.458948, 2.22052)
+
+[node name="Table" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941552, 0.276, 0)
+mesh = SubResource("BoxMesh_y23rg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+shape = SubResource("BoxShape3D_j011u")
+
+[node name="PickableObject" parent="." instance=ExtResource("3_ymy4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.786415, -0.100019, -0.300388)
+
+[node name="Temp" parent="." instance=ExtResource("4_n24m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91477, -0.136714, -0.239316)
+
+[node name="Regenerate" parent="." instance=ExtResource("5_apdrd")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.790028, 2.30625, -2.65574)
+screen_size = Vector2(300, 200)
+scene_properties_keys = PackedStringArray()
+
+[node name="Node2D" parent="Regenerate/Viewport" index="0" instance=ExtResource("6_kwy70")]
+
+[node name="Screen" parent="Regenerate" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36999, 0.0688934)
+mesh = SubResource("QuadMesh_60e3a")
+surface_material_override/0 = SubResource("StandardMaterial3D_fjra5")
+
+[node name="StaticBody3D" parent="Regenerate" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="Regenerate/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_8r0yu")
+
+[connection signal="pressed" from="Regenerate/Viewport/Node2D/Control/ColorRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+
+[editable path="Regenerate"]
+[editable path="Regenerate/Viewport/Node2D"]

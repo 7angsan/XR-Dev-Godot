@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://yr24aigjo3tq"]
+
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_hk3vb"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_kt3yq"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="2_x76jr"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_eatmb"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_mpflq"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_t241t"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_dqnqn"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="LeftHand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("1_hk3vb")]
+
+[node name="MovementDirect" parent="LeftHand" instance=ExtResource("2_x76jr")]
+strafe = true
+
+[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_eatmb")]
+
+[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("4_t241t")]
+show_laser = 2
+laser_length = 1
+
+[node name="RightHand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="RightHand" instance=ExtResource("2_kt3yq")]
+
+[node name="MovementTurn" parent="RightHand/RightHand" instance=ExtResource("4_mpflq")]
+
+[node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_eatmb")]
+
+[node name="FunctionPointer" parent="RightHand" instance=ExtResource("4_t241t")]
+show_laser = 2
+laser_length = 1
+
+[node name="PlayerBody" parent="." instance=ExtResource("5_dqnqn")]
