@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://cb6g8n3jd1muf"]
+
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://Demo/addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_sh7em"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://Demo/addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_fuoyp"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://Demo/addons/godot-xr-tools/functions/movement_direct.tscn" id="2_n6f6k"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://Demo/addons/godot-xr-tools/functions/function_pickup.tscn" id="3_xx80j"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://Demo/addons/godot-xr-tools/functions/movement_turn.tscn" id="4_ef744"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://Demo/addons/godot-xr-tools/player/player_body.tscn" id="4_fxytq"]
+[ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://Demo/addons/godot-xr-tools/functions/movement_climb.tscn" id="4_hgydv"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://Demo/addons/godot-xr-tools/functions/function_pointer.tscn" id="5_4hoyc"]
+[ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://Demo/addons/godot-xr-tools/functions/movement_grapple.tscn" id="6_6qra1"]
+[ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://Demo/addons/godot-xr-tools/functions/movement_jump.tscn" id="6_ksjf0"]
+[ext_resource type="PackedScene" uid="uid://kyhaogt0a4q8" path="res://Demo/addons/godot-xr-tools/functions/movement_flight.tscn" id="6_my7dr"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="8_5j6bk"]
+
+[sub_resource type="Resource" id="Resource_jo4hk"]
+script = ExtResource("8_5j6bk")
+flags = 0
+move_drag = 10.0
+move_traction = 30.0
+stop_on_slope = true
+move_max_slope = 45.0
+jump_max_slope = 45.0
+jump_velocity = 7.0
+bounciness = 0.0
+bounce_threshold = 1.0
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="LeftHand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("1_sh7em")]
+
+[node name="MovementDirect" parent="LeftHand" instance=ExtResource("2_n6f6k")]
+max_speed = 2.0
+strafe = true
+
+[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_xx80j")]
+
+[node name="MovementClimb" parent="LeftHand" instance=ExtResource("4_hgydv")]
+
+[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("5_4hoyc")]
+show_laser = 2
+laser_length = 1
+collision_mask = 5242884
+
+[node name="MovementGrapple" parent="LeftHand" instance=ExtResource("6_6qra1")]
+impulse_speed = 6.0
+winch_speed = 1.0
+rope_width = 0.04
+
+[node name="RightHand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="RightHand" instance=ExtResource("2_fuoyp")]
+
+[node name="MovementTurn" parent="RightHand" instance=ExtResource("4_ef744")]
+turn_mode = 1
+step_turn_angle = 45.0
+
+[node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_xx80j")]
+
+[node name="MovementJump" parent="RightHand" instance=ExtResource("6_ksjf0")]
+jump_button_action = "ax_button"
+
+[node name="MovementClimb" parent="RightHand" instance=ExtResource("4_hgydv")]
+
+[node name="FunctionPointer" parent="RightHand" instance=ExtResource("5_4hoyc")]
+show_laser = 2
+laser_length = 1
+collision_mask = 5242884
+
+[node name="MovementGrapple" parent="RightHand" instance=ExtResource("6_6qra1")]
+impulse_speed = 6.0
+winch_speed = 1.0
+rope_width = 0.04
+
+[node name="PlayerBody" parent="." instance=ExtResource("4_fxytq")]
+physics = SubResource("Resource_jo4hk")
+ground_control = 2
+
+[node name="MovementFlight" parent="." instance=ExtResource("6_my7dr")]
+enabled = false

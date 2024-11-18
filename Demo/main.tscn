@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://k1t35ww0a6nd"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_g5bdr"]
+[ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="1_spm5a"]
+[ext_resource type="PackedScene" uid="uid://c8063xc1xbjvy" path="res://Demo/Boxes/cube.tscn" id="3_3a5ug"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://Demo/addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_bpdx6"]
+[ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Demo/Background/background.tscn" id="6_m0tdn"]
+[ext_resource type="PackedScene" uid="uid://dwyb5kn72tadd" path="res://game_ui.tscn" id="6_sd28d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia346"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_btqxi"]
+sky_material = SubResource("ProceduralSkyMaterial_ia346")
+
+[sub_resource type="Environment" id="Environment_ytw6k"]
+background_mode = 2
+sky = SubResource("Sky_btqxi")
+tonemap_mode = 2
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_g5bdr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ytw6k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.821346, 0.494007, -0.285214, 0, 0.499998, 0.866026, 0.57043, -0.711308, 0.410672, -1.7, 3.00937, 0.3)
+light_indirect_energy = 2.0
+directional_shadow_mode = 0
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_spm5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.884247, 0)
+current = true
+
+[node name="PickableObject" parent="." instance=ExtResource("3_3a5ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0248768, 1.11983, -0.667623)
+
+[node name="Viewport2Din3D2" parent="." instance=ExtResource("5_bpdx6")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0.030971, 1.52338, -1.26215)
+screen_size = Vector2(1280, 768)
+scene = ExtResource("6_sd28d")
+viewport_size = Vector2(1400, 700)
+unshaded = true
+scene_properties_keys = PackedStringArray("SortingAlgo_Tutorial.gd")
+
+[node name="Background" parent="." instance=ExtResource("6_m0tdn")]

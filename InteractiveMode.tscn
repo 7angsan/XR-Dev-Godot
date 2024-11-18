@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="2_k8eou"]
 [ext_resource type="PackedScene" uid="uid://djkui8l4yreqh" path="res://cube.tscn" id="3_ymy4v"]
 [ext_resource type="PackedScene" uid="uid://c3lu6fo0no58d" path="res://temp.tscn" id="4_n24m3"]
-[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_apdrd"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://Demo/addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_apdrd"]
 [ext_resource type="PackedScene" uid="uid://bbdujf6pj2cqf" path="res://regenerate_ui.tscn" id="6_kwy70"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e0jtf"]
@@ -40,13 +40,13 @@ size = Vector3(4, 1, 1)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xlfft"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qyroj"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s225m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lg56x"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_xlfft")
+albedo_texture = SubResource("ViewportTexture_qyroj")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8r0yu"]
@@ -81,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7583, -0.250031, -0.130043)
 mesh = SubResource("BoxMesh_6bast")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_k8eou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698, -0.896137, 3.087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698, -0.374756, 3.087)
 
 [node name="Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957467, -0.503222, -0.00129414)
@@ -101,13 +101,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91477, -0.136714, -0.239316
 [node name="Regenerate" parent="." instance=ExtResource("5_apdrd")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.790028, 1.27744, -2.65574)
 screen_size = Vector2(300, 200)
+scene_properties_keys = PackedStringArray()
 
 [node name="Node2D" parent="Regenerate/Viewport" index="0" instance=ExtResource("6_kwy70")]
 
 [node name="Screen" parent="Regenerate" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36999, 0.0688934)
 mesh = SubResource("QuadMesh_60e3a")
-surface_material_override/0 = SubResource("StandardMaterial3D_s225m")
+surface_material_override/0 = SubResource("StandardMaterial3D_lg56x")
 
 [node name="StaticBody3D" parent="Regenerate" index="2"]
 screen_size = Vector2(300, 200)
