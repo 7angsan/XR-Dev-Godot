@@ -143,6 +143,9 @@ radius = 0.85
 
 [node name="Teleport" type="Node3D"]
 script = ExtResource("1_mkuv0")
+spawn_point_name = ""
+spawn_point_position = Vector3(0, 0, 0)
+spawn_point_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="TeleportBody" type="StaticBody3D" parent="."]
 
