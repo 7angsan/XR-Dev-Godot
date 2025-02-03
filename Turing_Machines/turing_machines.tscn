@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://grewa2uhqspw"]
+
+[ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="1_hyum7"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_wyfir"]
+[ext_resource type="Script" path="res://Turing_Machines/tm_main.gd" id="2_vpsys"]
+[ext_resource type="PackedScene" uid="uid://bk5vxvi5qtpl1" path="res://Turing_Machines/TM_assests/Tape_Input_UI.tscn" id="4_wvms8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mf2d"]
+size = Vector3(30, 0.1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnlsi"]
+size = Vector3(30, 0.1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m57k2"]
+transparency = 1
+albedo_color = Color(0.967968, 0.934283, 0.932323, 0.635294)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iaxc1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_da8jc"]
+sky_material = SubResource("ProceduralSkyMaterial_iaxc1")
+
+[sub_resource type="Environment" id="Environment_3je2q"]
+background_mode = 2
+sky = SubResource("Sky_da8jc")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="ToTuringMachines" type="Node3D"]
+script = ExtResource("1_wyfir")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -1)
+shape = SubResource("BoxShape3D_8mf2d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -1)
+mesh = SubResource("BoxMesh_vnlsi")
+surface_material_override/0 = SubResource("StandardMaterial3D_m57k2")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_hyum7")]
+transform = Transform3D(0.0116236, 0, -0.999932, 0, 1, 0, 0.999932, 0, 0.0116236, -3.6165, 0.552936, -0.721428)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3je2q")
+
+[node name="TM_Main" type="Node3D" parent="."]
+script = ExtResource("2_vpsys")
+
+[node name="TapeInputUi" parent="TM_Main" instance=ExtResource("4_wvms8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 5)
+
+[node name="Viewport2Din3D" parent="TM_Main/TapeInputUi" index="0"]
+transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, -0.597084, 0)
+
+[connection signal="text_changed" from="TM_Main/TapeInputUi/Viewport2Din3D/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/TextEdit" to="TM_Main" method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="TM_Main/TapeInputUi/Viewport2Din3D/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/TextEdit2" to="TM_Main" method="_on_text_edit_2_text_changed"]
+[connection signal="text_changed" from="TM_Main/TapeInputUi/Viewport2Din3D/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/TextEdit3" to="TM_Main" method="_on_text_edit_3_text_changed"]
+[connection signal="pressed" from="TM_Main/TapeInputUi/Viewport2Din3D/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/Button" to="TM_Main" method="_on_button_pressed"]
+
+[editable path="TM_Main/TapeInputUi"]
+[editable path="TM_Main/TapeInputUi/Viewport2Din3D/TmUi"]
