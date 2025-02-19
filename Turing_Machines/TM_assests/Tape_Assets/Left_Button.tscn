@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://igpl2fcv0c77"]
+
+[node name="LeftButton" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 204.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 303.0
+offset_bottom = 198.0
+color = Color(0.403627, 0.221757, 0.49731, 1)
+
+[node name="Button" type="Button" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 47.0
+offset_right = 303.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 35
+text = "Left <<"

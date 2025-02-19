@@ -1,0 +1,111 @@
+[gd_scene load_steps=16 format=3 uid="uid://boyhfhp5e3udg"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_tvjm8"]
+[ext_resource type="PackedScene" uid="uid://igpl2fcv0c77" path="res://Turing_Machines/TM_assests/Tape_Assets/Left_Button.tscn" id="2_f6jt2"]
+[ext_resource type="PackedScene" uid="uid://75vqa6tvpeb6" path="res://Turing_Machines/TM_assests/Tape_Assets/Right_Button.tscn" id="3_p0bgs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lguy"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ucxmg"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2w4t"]
+albedo_color = Color(0.364519, 0.838089, 0.565703, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_resdn"]
+height = 0.3
+radius = 0.05
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pfm1x"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_derpt"]
+albedo_color = Color(0.452772, 0.822567, 0.58042, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mfip6"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_efm43"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uk70w"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_efm43")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tjdh"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2vpe8"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amgf7"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_2vpe8")
+texture_filter = 1
+
+[node name="HeadPointer" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.241533, 0)
+shape = SubResource("BoxShape3D_3lguy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(-0.999991, -0.00432839, 0, 0.00432839, -0.999991, 0, 0, 0, 1, 0, 0.00396804, 0)
+mesh = SubResource("PrismMesh_ucxmg")
+surface_material_override/0 = SubResource("StandardMaterial3D_e2w4t")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.999991, -0.00432839, 0, 0.00432839, -0.999991, 0, 0, 0, 1, 1.16415e-10, 0.550002, 0)
+shape = SubResource("CylinderShape3D_resdn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87996e-05, 0.00896406, 0)
+mesh = SubResource("CylinderMesh_pfm1x")
+skeleton = NodePath("../../CollisionShape3D2")
+surface_material_override/0 = SubResource("StandardMaterial3D_derpt")
+
+[node name="LeftButton" parent="." instance=ExtResource("1_tvjm8")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.350616, 0.754426, 0)
+screen_size = Vector2(300, 200)
+
+[node name="LeftButton" parent="LeftButton/Viewport" index="0" instance=ExtResource("2_f6jt2")]
+
+[node name="Screen" parent="LeftButton" index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("QuadMesh_mfip6")
+surface_material_override/0 = SubResource("StandardMaterial3D_uk70w")
+
+[node name="StaticBody3D" parent="LeftButton" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="LeftButton/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_5tjdh")
+
+[node name="RightButton" parent="." instance=ExtResource("1_tvjm8")]
+transform = Transform3D(-0.000999206, 0, -3.98353e-05, 0, 0.001, 0, 3.98353e-05, 0, -0.000999206, -0.347774, 0.754426, 0)
+screen_size = Vector2(300, 200)
+
+[node name="LeftButton" parent="RightButton/Viewport" index="0" instance=ExtResource("3_p0bgs")]
+
+[node name="Screen" parent="RightButton" index="1"]
+mesh = SubResource("QuadMesh_mfip6")
+surface_material_override/0 = SubResource("StandardMaterial3D_amgf7")
+
+[node name="StaticBody3D" parent="RightButton" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="RightButton/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_5tjdh")
+
+[editable path="LeftButton"]
+[editable path="RightButton"]
