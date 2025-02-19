@@ -1,0 +1,314 @@
+[gd_scene load_steps=48 format=3 uid="uid://grewa2uhqspw"]
+
+[ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="1_hyum7"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_wyfir"]
+[ext_resource type="Script" path="res://Turing_Machines/tm_main.gd" id="2_vpsys"]
+[ext_resource type="PackedScene" uid="uid://boyhfhp5e3udg" path="res://Turing_Machines/TM_assests/Tape_Assets/Head_Pointer.tscn" id="5_dk12d"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_fgycp"]
+[ext_resource type="PackedScene" uid="uid://4m61qerj4gba" path="res://Turing_Machines/TM_assests/Validate_Delta_Table_Button.tscn" id="6_y2mrn"]
+[ext_resource type="PackedScene" uid="uid://caqdp6ee8sswq" path="res://Turing_Machines/TM_assests/TM_UI_.tscn" id="7_1mem6"]
+[ext_resource type="PackedScene" uid="uid://dt0l15571khcs" path="res://Turing_Machines/TM_assests/Tape_Assets/Reset_Button.tscn" id="8_52ldg"]
+[ext_resource type="PackedScene" uid="uid://b0n05am6cjsdv" path="res://Turing_Machines/TM_assests/Button_Assets/Add_Langauge1_Button.tscn" id="9_7j4k0"]
+[ext_resource type="PackedScene" uid="uid://dygvpk4uuxxna" path="res://Turing_Machines/TM_assests/Button_Assets/Add_Langauge2_Button.tscn" id="10_uk8rl"]
+[ext_resource type="PackedScene" uid="uid://doswkuq42mfbi" path="res://Turing_Machines/TM_assests/Button_Assets/Add_Langauge3_Button.tscn" id="11_tub65"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mf2d"]
+size = Vector3(30, 0.1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnlsi"]
+size = Vector3(30, 0.1, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m57k2"]
+transparency = 1
+albedo_color = Color(0.967968, 0.934283, 0.932323, 0.635294)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iaxc1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_da8jc"]
+sky_material = SubResource("ProceduralSkyMaterial_iaxc1")
+
+[sub_resource type="Environment" id="Environment_3je2q"]
+background_mode = 2
+sky = SubResource("Sky_da8jc")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ljsx6"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_si4of"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8385"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_si4of")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_454bt"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s4da2"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oblvf"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_s4da2")
+texture_filter = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_3n76o"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xto1o"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ibdm"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_xto1o")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrraf"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="QuadMesh" id="QuadMesh_d5ilp"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6cjvp"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m10ug"]
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_6cjvp")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdm5p"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="QuadMesh" id="QuadMesh_253ce"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pwf0w"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spynb"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_pwf0w")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3egwb"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="QuadMesh" id="QuadMesh_d0yax"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f14un"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8unbg"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_f14un")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6jq8"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ynai8"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ikein"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5r26"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_ikein")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jt7ml"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1y401"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8i43g"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwwft"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_8i43g")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihfp6"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[node name="ToTuringMachines" type="Node3D"]
+script = ExtResource("1_wyfir")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -1)
+shape = SubResource("BoxShape3D_8mf2d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -1)
+mesh = SubResource("BoxMesh_vnlsi")
+surface_material_override/0 = SubResource("StandardMaterial3D_m57k2")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_hyum7")]
+transform = Transform3D(-0.999906, 0, -0.013683, 0, 1, 0, 0.013683, 0, -0.999906, 2.1562, 0.552936, -4.77673)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3je2q")
+
+[node name="TM_Main" type="Node3D" parent="."]
+script = ExtResource("2_vpsys")
+
+[node name="HeadPointer" parent="TM_Main" instance=ExtResource("5_dk12d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+
+[node name="Screen" parent="TM_Main/HeadPointer/LeftButton" index="1"]
+mesh = SubResource("QuadMesh_ljsx6")
+surface_material_override/0 = SubResource("StandardMaterial3D_j8385")
+
+[node name="CollisionShape3D" parent="TM_Main/HeadPointer/LeftButton/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_454bt")
+
+[node name="Screen" parent="TM_Main/HeadPointer/RightButton" index="1"]
+mesh = SubResource("QuadMesh_ljsx6")
+surface_material_override/0 = SubResource("StandardMaterial3D_oblvf")
+
+[node name="CollisionShape3D" parent="TM_Main/HeadPointer/RightButton/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_454bt")
+
+[node name="ValidateDeltaTableButton" parent="TM_Main" instance=ExtResource("6_y2mrn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.438, 50, 0)
+
+[node name="Screen" parent="TM_Main/ValidateDeltaTableButton/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_3n76o")
+surface_material_override/0 = SubResource("StandardMaterial3D_2ibdm")
+
+[node name="CollisionShape3D" parent="TM_Main/ValidateDeltaTableButton/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_vrraf")
+
+[node name="TM_UI_Node" parent="TM_Main" instance=ExtResource("6_fgycp")]
+transform = Transform3D(-0.0118853, 0, 0.00915093, 0, 0.015, 0, -0.00915093, 0, -0.0118853, -2.07698, 2.21346, -1.51468)
+screen_size = Vector2(300, 200)
+transparent = 0
+
+[node name="Viewport" parent="TM_Main/TM_UI_Node" index="0"]
+transparent_bg = false
+
+[node name="TmUi" parent="TM_Main/TM_UI_Node/Viewport" index="0" instance=ExtResource("7_1mem6")]
+
+[node name="Screen" parent="TM_Main/TM_UI_Node" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.213, -7)
+mesh = SubResource("QuadMesh_d5ilp")
+surface_material_override/0 = SubResource("StandardMaterial3D_m10ug")
+
+[node name="StaticBody3D" parent="TM_Main/TM_UI_Node" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="TM_Main/TM_UI_Node/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_pdm5p")
+
+[node name="ResetButton" parent="TM_Main" instance=ExtResource("8_52ldg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.83697, 0.407453, -7.76438)
+
+[node name="Screen" parent="TM_Main/ResetButton/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_253ce")
+surface_material_override/0 = SubResource("StandardMaterial3D_spynb")
+
+[node name="CollisionShape3D" parent="TM_Main/ResetButton/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_3egwb")
+
+[node name="AddLangauge1Button" parent="TM_Main" instance=ExtResource("9_7j4k0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.19251, 0.402994, -7.72728)
+
+[node name="Screen" parent="TM_Main/AddLangauge1Button/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_d0yax")
+surface_material_override/0 = SubResource("StandardMaterial3D_8unbg")
+
+[node name="CollisionShape3D" parent="TM_Main/AddLangauge1Button/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_n6jq8")
+
+[node name="AddLangauge1Button2" parent="TM_Main" instance=ExtResource("10_uk8rl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.76436, 0.412075, -7.73612)
+
+[node name="Screen" parent="TM_Main/AddLangauge1Button2/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_ynai8")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5r26")
+
+[node name="CollisionShape3D" parent="TM_Main/AddLangauge1Button2/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_jt7ml")
+
+[node name="AddLangauge1Button3" parent="TM_Main" instance=ExtResource("11_tub65")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.28056, 0.419126, -7.76644)
+
+[node name="Screen" parent="TM_Main/AddLangauge1Button3/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_1y401")
+surface_material_override/0 = SubResource("StandardMaterial3D_fwwft")
+
+[node name="CollisionShape3D" parent="TM_Main/AddLangauge1Button3/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_ihfp6")
+
+[connection signal="pressed" from="TM_Main/HeadPointer/LeftButton/Viewport/LeftButton/Control/ColorRect/Button" to="TM_Main" method="_on_button_pressed_LEFT"]
+[connection signal="pressed" from="TM_Main/HeadPointer/RightButton/Viewport/LeftButton/Control/ColorRect/Button" to="TM_Main" method="_on_button_pressed_RIGHT"]
+[connection signal="pressed" from="TM_Main/ValidateDeltaTableButton/Viewport2Din3D/Viewport/VDTButton2d/Control/ColorRect/RichTextLabel" to="TM_Main" method="_on_Delta_Button_pressed"]
+[connection signal="text_submitted" from="TM_Main/TM_UI_Node/Viewport/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/TextEdit" to="TM_Main" method="_on_states_submitted"]
+[connection signal="text_submitted" from="TM_Main/TM_UI_Node/Viewport/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/TextEdit3" to="TM_Main" method="_on_tape_alphabet_submitted"]
+[connection signal="text_submitted" from="TM_Main/TM_UI_Node/Viewport/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/TextEdit2" to="TM_Main" method="_on_input_string_submitted"]
+[connection signal="pressed" from="TM_Main/TM_UI_Node/Viewport/TmUi/Control/ColorRect/MarginContainer/VBoxContainer/Button" to="TM_Main" method="_on_button_TM_UI"]
+[connection signal="pressed" from="TM_Main/ResetButton/Viewport2Din3D/Viewport/Rb2d/Control/ColorRect/ColorRect/RichTextLabel" to="TM_Main" method="_on_RESET_PRESSED"]
+[connection signal="pressed" from="TM_Main/AddLangauge1Button/Viewport2Din3D/Viewport/AddLang12d/Control/ColorRect/ColorRect/Button" to="TM_Main" method="_on_button_pressed_Lang1"]
+[connection signal="pressed" from="TM_Main/AddLangauge1Button2/Viewport2Din3D/Viewport/AddLang12d/Control/ColorRect/ColorRect/Button" to="TM_Main" method="_on_button_pressed_Lang2"]
+[connection signal="pressed" from="TM_Main/AddLangauge1Button3/Viewport2Din3D/Viewport/AddLang12d/Control/ColorRect/ColorRect/Button" to="TM_Main" method="_on_button_pressed_Lang3"]
+
+[editable path="TM_Main/HeadPointer"]
+[editable path="TM_Main/HeadPointer/LeftButton"]
+[editable path="TM_Main/HeadPointer/LeftButton/Viewport/LeftButton"]
+[editable path="TM_Main/HeadPointer/RightButton"]
+[editable path="TM_Main/HeadPointer/RightButton/Viewport/LeftButton"]
+[editable path="TM_Main/ValidateDeltaTableButton"]
+[editable path="TM_Main/ValidateDeltaTableButton/Viewport2Din3D"]
+[editable path="TM_Main/ValidateDeltaTableButton/Viewport2Din3D/Viewport/VDTButton2d"]
+[editable path="TM_Main/TM_UI_Node"]
+[editable path="TM_Main/TM_UI_Node/Viewport/TmUi"]
+[editable path="TM_Main/ResetButton"]
+[editable path="TM_Main/ResetButton/Viewport2Din3D"]
+[editable path="TM_Main/ResetButton/Viewport2Din3D/Viewport/Rb2d"]
+[editable path="TM_Main/AddLangauge1Button"]
+[editable path="TM_Main/AddLangauge1Button/Viewport2Din3D"]
+[editable path="TM_Main/AddLangauge1Button/Viewport2Din3D/Viewport/AddLang12d"]
+[editable path="TM_Main/AddLangauge1Button2"]
+[editable path="TM_Main/AddLangauge1Button2/Viewport2Din3D"]
+[editable path="TM_Main/AddLangauge1Button2/Viewport2Din3D/Viewport/AddLang12d"]
+[editable path="TM_Main/AddLangauge1Button3"]
+[editable path="TM_Main/AddLangauge1Button3/Viewport2Din3D"]
+[editable path="TM_Main/AddLangauge1Button3/Viewport2Din3D/Viewport/AddLang12d"]

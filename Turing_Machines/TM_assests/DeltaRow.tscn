@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://csmnh5l0en6hk"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_174to"]
+[ext_resource type="PackedScene" uid="uid://c87n37in0blnd" path="res://Turing_Machines/TM_assests/D_R.tscn" id="2_n45ch"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2yqjm"]
+resource_local_to_scene = true
+size = Vector2(150, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e0o0w"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qlqi"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_e0o0w")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3yi2"]
+resource_local_to_scene = true
+size = Vector3(150, 200, 0.02)
+
+[node name="DeltaRow" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_174to")]
+transform = Transform3D(-2.18557e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.18557e-10, 0, 0, 0)
+screen_size = Vector2(150, 200)
+viewport_size = Vector2(150, 200)
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(150, 200)
+
+[node name="DR" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_n45ch")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_2yqjm")
+surface_material_override/0 = SubResource("StandardMaterial3D_1qlqi")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(150, 200)
+viewport_size = Vector2(150, 200)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_k3yi2")
+
+[editable path="Viewport2Din3D"]
