@@ -38,4 +38,4 @@ offset_left = 18.0
 offset_top = 104.0
 offset_right = 256.0
 offset_bottom = 145.0
-text = "Add Language: 0*1*"
+text = "Add Language: 0^n1^n | n>=0"

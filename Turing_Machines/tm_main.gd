@@ -81,7 +81,7 @@ var Tape_Table_Z = -5
 #var DC_Z = 0
 var DC_X = -5
 var DC_Y = 1
-var DC_Z = -11
+var DC_Z = -14 # was at -11
 var Transition_Table_Rows = [] # the states UI elements 
 var Transition_Table_Cols = [] # the tape alphabet UI elements 
 
@@ -171,6 +171,39 @@ var Added_Lang1 = false
 var Added_Lang2 = false
 var Added_Lang3 = false 
 
+# state diagrams 
+var State_Diagram_1 = preload("res://Turing_Machines/TM_assests/State_Diagram_Assests/State_Diagram_1_3D.tscn") # 0^n1^n | n >= 0
+var State_Diagram_2 = preload("res://Turing_Machines/TM_assests/State_Diagram_Assests/State_Diagram_2_3D.tscn") # even length palindrome
+var State_Diagram_3 = preload("res://Turing_Machines/TM_assests/State_Diagram_Assests/State_Diagram_3_3D.tscn")
+var State_Diagram_1_Ref
+var State_Diagram_2_Ref
+var State_Diagram_3_Ref
+
+# state diagram coordinates: 
+var State_Diagram_X = 0
+var State_Diagram_Y = 8.65
+var State_Diagram_Z = 7.5
+
+# bear mascot 
+var Bear_Mascot = preload("res://Turing_Machines/TM_assests/Teddy_Bear/Teddy_Bear_Model.tscn")
+var Bear_Mascot_Ref 
+var Bear_Text 
+var Bear_States_Done = false
+var Bear_Char_Alpha_Done = false 
+var Bear_Input_String_Done = false
+var Bear_Transition_Table_Done = false 
+
+
+# bear's starting coordinates 
+var Bear_X = -3.844
+var Bear_Y = 0.936
+var Bear_Z = -4.663
+
+# bear's other starting coordinates 
+var Bear_X_2 = 9.323
+var Bear_Y_2 = 0.883
+var Bear_Z_2 = -5.619
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -190,6 +223,8 @@ func _ready() -> void:
 		# Create the table
 		_createTapeTable()
 		
+		# Add the mascot to the scene 
+		_place_mascot()
 		
 		#_build_Delta_Matrix() 
 		
@@ -269,6 +304,53 @@ func _process(delta: float) -> void:
 			
 #END_PROCESS###############################################################################################################################
 
+
+# place the mascot in the world
+func _place_mascot() -> void:
+	Bear_Mascot_Ref = Bear_Mascot.instantiate()
+	Bear_Mascot_Ref.global_transform.origin = Vector3(Bear_X, Bear_Y, Bear_Z)
+	Bear_Mascot_Ref.rotation_degrees = Vector3(0, 135, 0) 
+	add_child(Bear_Mascot_Ref)
+	
+	Bear_Text = Bear_Mascot_Ref.get_node("TeddyBearTextBubble/Viewport/BearTextBubble/ColorRect/ColorRect/RichTextLabel")
+	
+	
+# set mascot's text after sumbitting states and show instructions for inputting character alphabet 
+func _mascot_Char_Alpha_Text() -> void: 
+	# lets change the bear's text 
+	Bear_Text.text = "Enter the Tape Alphabet: for example any characters such as, 0 1 X Y...\nThe blank symbol (_) is added by default.\nYou may not add more than 10 characters. "
+	
+	
+# set mascot's text after sumbitting the tape alphabet and show instructions for entering the input stirng 
+func _mascot_Input_String_Text() -> void: 
+	Bear_Text.text = "Enter any string you wish.\nThe TM will either reject it or accept it!"
+	
+	
+	
+# set mascot's text after sumbitting the input string and show instructions for entering the transition table 
+func _mascot_Tranisition_Table_Text() -> void: 
+	Bear_Text.text = "Fill in the transition table!\nIf we have (q1, X L), q1 means that's the state we traverse to,\nX is character we write to the tape,\nand L (left) is the direction we move the head pointer.\nNote that in the table, going down the first column tells us the current state we are in, and the characters along the first row indicate the current character head points to."
+	
+	
+# set mascot's text after sumbitting the transition table and show instructions for processing the input on the TM
+func _mascot_Processing_Input_TM_Text() -> void: 
+	
+	# before we set the mascot's text, we must put it in the proper location 
+	Bear_Mascot_Ref.global_transform.origin = Vector3(Bear_X_2, Bear_Y_2, Bear_Z_2)
+	Bear_Mascot_Ref.rotation_degrees = Vector3(0, 0, 0) 
+	
+	Bear_Text.text = "The state highlighted in blue in the state diagram table indicates the current state we are in.\nThe blue symbol highlighted indicates the current symbol the head points to.\nThe inner item highlighted (say (q1, X, L)) tells us to write X to the tape, then move the head left, and as a result we move to state q1."
+	
+	
+# set the mascot's text for entering the set of states 
+func _mascot_States_Text() -> void: 
+	
+	# Put mascot in default position 
+	Bear_Mascot_Ref.global_transform.origin = Vector3(Bear_X, Bear_Y, Bear_Z)
+	Bear_Mascot_Ref.rotation_degrees = Vector3(0, 135, 0) 
+	
+	Bear_Text.text = "Welcome! Enter states in the form:\n q1 q2 .. qf\n Remember, q1 is starting state.\n qf is final state."
+#END MASCOT##############################################################################################################################
 
 
 # we the tape rejects we make the indicator red 
@@ -388,8 +470,26 @@ func _build_Pretty_UI_Delta_Table() -> void:
 		
 	
 	Accept_Reject_Ref = Accept_Reject.instantiate()
-	Accept_Reject_Ref.global_transform.origin = Vector3(Reject_Accept_X - 2, Reject_Accept_Y, Reject_Accept_Z)
+	Accept_Reject_Ref.global_transform.origin = Vector3(Reject_Accept_X - 1, Reject_Accept_Y, Reject_Accept_Z)
 	add_child(Accept_Reject_Ref) # lets add the reference to the add and reject UI to the scene 
+	
+	# lets see which state diagram to add:
+	
+	if Added_Lang1: # added 0^n1^n | n >= 0 so we will display this langauge's state diagram 
+		State_Diagram_1_Ref = State_Diagram_1.instantiate()
+		State_Diagram_1_Ref.global_transform.origin = Vector3(Reject_Accept_X - 9, State_Diagram_Y, State_Diagram_Z)
+		State_Diagram_1_Ref.rotation_degrees = Vector3(0, 120, 0)  # Resets rotation to (0,0,0)
+		add_child(State_Diagram_1_Ref) # lets add the referece to the state diagram 
+	elif Added_Lang2: # might be confusing but State diagram 3 is 01^*0 language, i got the numbers mixed up 
+		State_Diagram_3_Ref = State_Diagram_3.instantiate()
+		State_Diagram_3_Ref.global_transform.origin = Vector3(Reject_Accept_X - 9, State_Diagram_Y, State_Diagram_Z)
+		State_Diagram_3_Ref.rotation_degrees = Vector3(0, 120, 0)  # Resets rotation to (0,0,0)
+		add_child(State_Diagram_3_Ref) # lets add the referece to the state diagram 
+	elif Added_Lang3: # added even length palidrome so will display even length palindrome state diagram 
+		State_Diagram_2_Ref = State_Diagram_2.instantiate()
+		State_Diagram_2_Ref.global_transform.origin = Vector3(Reject_Accept_X - 9, State_Diagram_Y, State_Diagram_Z)
+		State_Diagram_2_Ref.rotation_degrees = Vector3(0, 120, 0)  # Resets rotation to (0,0,0)
+		add_child(State_Diagram_2_Ref) # lets add the referece to the state diagram 
 	
 # END_CHECK_USER_MOVES_HEAD#########################################################################################################################
 
@@ -907,6 +1007,8 @@ func _on_input_string_submitted(input_string: String) -> void:
 			String_Input_Tuple.append(char) # add each valid character to the input string tuple 
 			
 		print(" we have successful input string")
+		
+		
 		input_string_valid = true
 		
 	if TM_UI_Submitted and Delta_Data_Valid: # if the user has already sumbitted a string and wants to sumbit another one:
@@ -1063,6 +1165,11 @@ func _on_states_submitted(set_States: String) -> void:
 		#Succefull state input 
 		print(" we have successful input for states ")
 		
+		# once we have successful input for states, lets put the mascot's text for the character alphabet 
+		if !Bear_States_Done:
+			_mascot_Char_Alpha_Text()
+			Bear_States_Done = true
+		
 		rowsDelta = matrix_Delta_Rows_States.size() # this will be the number of rows we have
 		states_valid = true # indicator that we have a valid set of states  
 # ON_STATES_SUMBITTED#########################################################################################################################
@@ -1101,6 +1208,11 @@ func _on_tape_alphabet_submitted(tape_alphabet: String) -> void:
 			matrix_Delta_Cols_Alphabet.append("_")
 			colsDelta = length + 1 # this is the number of cols for the matrix 
 			
+			# let's put mascot input string next 
+			if !Bear_Char_Alpha_Done:
+				_mascot_Input_String_Text()
+				Bear_Char_Alpha_Done = true 
+			
 			tape_alphabet_valid = true # an indicator showing that we have a valid tape alphabet 
 # END_ON_TAPE_ALPHABET_SUBMITTED#########################################################################################################################
 
@@ -1108,10 +1220,15 @@ func _on_tape_alphabet_submitted(tape_alphabet: String) -> void:
 
 # we create the delta matrix in this function after valid input of states, alphabet, and input string 
 func _on_button_TM_UI() -> void:
-	if states_valid and tape_alphabet_valid and input_string_valid:
-		_build_Delta_Matrix() 
-		
-		TM_UI_Submitted = true
+	if !TM_UI_Submitted: 
+		if states_valid and tape_alphabet_valid and input_string_valid:
+			_build_Delta_Matrix() 
+			
+			if !Bear_Input_String_Done:
+				_mascot_Tranisition_Table_Text()
+				Bear_Input_String_Done = true 
+			
+			TM_UI_Submitted = true
 		
 	
 # END_ON_BUTTON_TURING_MACHINE_UI#########################################################################################################################
@@ -1122,6 +1239,11 @@ func _on_button_TM_UI() -> void:
 func _on_Delta_Button_pressed() -> void:
 	_get_delta_data()
 	if Delta_Data_Valid:
+		
+		# set the bear's text for the simulation of input string on turing machine 
+		if !Bear_Transition_Table_Done:
+			_mascot_Processing_Input_TM_Text()
+			Bear_Transition_Table_Done = true 
 		
 		print(" we have a valid delta table ")
 		Delta_Sumbit.global_transform.origin = Vector3(DSX, DSY + 46, DSZ) # move the submit button back up 
@@ -1175,135 +1297,154 @@ func _on_button_pressed_RIGHT() -> void:
 
 # We reset the entire turing machine environment when the button is pressed 
 func _on_RESET_PRESSED() -> void:
+	
 	print(" User pressed reset button ")
 	
-	# reset pedestal coordinates to its original state 
-	PedestalX = 13.8
-	PedestalY = 1.005
-	PedestalZ = -0.2
-	
-	# delete each pedestal in the scene 
-	for i in range(Pedestal_List.size()):
-		Pedestal_List[i].queue_free()
-	Pedestal_List.clear() # clear any potential garbage references 
+	if Delta_Data_Valid:
+		
+		# reset pedestal coordinates to its original state 
+		PedestalX = 13.8
+		PedestalY = 1.005
+		PedestalZ = -0.2
+		
+		# delete each pedestal in the scene 
+		for i in range(Pedestal_List.size()):
+			Pedestal_List[i].queue_free()
+		Pedestal_List.clear() # clear any potential garbage references 
 
-	# delete each symbol on the pedestals
-	for i in range(Tape_Symbols_On_Pedestals.size()):
-		Tape_Symbols_On_Pedestals[i].queue_free()
-	Tape_Symbols_On_Pedestals.clear()
-	Tape_Symbols_XYZ.clear()
+		# delete each symbol on the pedestals
+		for i in range(Tape_Symbols_On_Pedestals.size()):
+			Tape_Symbols_On_Pedestals[i].queue_free()
+		Tape_Symbols_On_Pedestals.clear()
+		Tape_Symbols_XYZ.clear()
+		
+		# reset the height where cube gets placed 
+		Tape_Symbol_Y = 1.06
+		
+		
+	# Delta Table Submission resets
+		DSX = -5
+		DSY = 0.513
+		DSZ = -13
+		Delta_Data_Valid = false
+		
+	# Tape Symbols Placement on Tape Coordinates Reset 
+		TS_X = 12.635
+		TS_Y = 1.555
+		TS_Z = 0
+		
+		# delete all the symbols on the tape
+		for i in range(Symbols_On_Tape_List.size()):
+			Symbols_On_Tape_List[i].queue_free()
+		Symbols_On_Tape_List.clear()
+		Symbols_On_Tape_List_XYZ.clear()
+		
+		DC_X = -5
+		DC_Y = 1
+		DC_Z = -14
+		
+		# delete all the data cells in the transition table 
+		for i in range(matrix_Delta_UI.size()):
+			for j in range(matrix_Delta_UI[i].size()):
+				matrix_Delta_UI[i][j].queue_free()
+				
+		matrix_Delta_UI.clear()
+		matrix_Delta_Data.clear()
+		matrix_Delta_Rows_States.clear()
+		matrix_Delta_Cols_Alphabet.clear()
+		String_Input_Tuple.clear()
+		
+		# delete the UI tape alphabet and set of states elements 
+		for i in range(Transition_Table_Cols.size()):
+			Transition_Table_Cols[i].queue_free()
+		for i in range(Transition_Table_Rows.size()):
+			Transition_Table_Rows[i].queue_free()
+		Transition_Table_Cols.clear()
+		Transition_Table_Rows.clear()
+		
+		
+	# key word for empty cell reset, which might not be necessary 
+		emptyCell = "{}"
+		rowsDelta = 5
+		colsDelta = 5
+		
+	# Button logic Reset
+		states_valid = false
+		input_string_valid = false
+		tape_alphabet_valid = false 
+		
+	# Head Pointer Coordinates Reset 
+		Head_Pointer_X = 12.635
+		Head_Pointer_Y = 1.9
+		Head_Pointer_Z = 0
+		
+		
+		# move the arrow and sumbit button up high 
+		Head_Pointer.global_transform.origin = Vector3(0, 50, 0)
+		Delta_Sumbit.global_transform.origin = Vector3(0, 50, 0)
+		
+		
+	# q1 is always the starting state 
+		Current_State = "q1"
+		Head_Pointer_To_Symbol_In_Tape = 0
+		
+	# Turing Machine User Phases Reset
+		Tape_Checks_Current_Head_Complete = false 
+		User_Has_Written_To_Tape_Complete = false
+		User_Has_Moved_The_Head_Pointer = false
+		Cycle_Complete = false
+		Turing_Machine_Accepted_Or_Rejected = false
+		
+		
+	# logic for writing to the tape Reset
+		Symbols_Unfreeze = false
+		Is_User_Holding_Symbol = false 
+		
+		# the current tuple itself Reset
+		Curr_Delta_Tuple.clear()
+		
+		# Move arrow 
+		move_Head_Left = false 
+		move_Head_Right = false 
+		Head_Moved = false
+		
+		# delete cells in pretty transition table  
+		for i in range(Pretty_Transition_Table.size()):
+			for j in range(Pretty_Transition_Table[i].size()):
+				Pretty_Transition_Table[i][j].queue_free()
+		Pretty_Transition_Table.clear()
+		Tuple_To_Highlight_X = 0
+		Tuple_To_Highlight_Y = 0
+		
+		# Accept/Reject UI Reset
+		Reject = false
+		Accept = false
+		
+		Accept_Reject_Ref.queue_free()
+		
+		# TM UI 
+		TM_UI_Submitted = false 
+		
+		# delete state diagram if one was placed in scene 
+		if Added_Lang1:
+			State_Diagram_1_Ref.queue_free()
+		elif Added_Lang2: 
+			State_Diagram_3_Ref.queue_free() # this is not a typo, its supposed to be state diagram 3
+		elif Added_Lang3:
+			State_Diagram_2_Ref.queue_free()
+		
+		# add default langauges reset
+		Added_Lang1 = false 
+		Added_Lang2 = false
+		Added_Lang3 = false 
+		
+		# put mascot in original position 
+		_mascot_States_Text()
+		Bear_Char_Alpha_Done = false
+		Bear_Input_String_Done = false
+		Bear_States_Done = false
+		Bear_Transition_Table_Done = false 
 	
-	# reset the height where cube gets placed 
-	Tape_Symbol_Y = 1.06
-	
-	
-# Delta Table Submission resets
-	DSX = -5
-	DSY = 0.513
-	DSZ = -13
-	Delta_Data_Valid = false
-	
-# Tape Symbols Placement on Tape Coordinates Reset 
-	TS_X = 12.635
-	TS_Y = 1.555
-	TS_Z = 0
-	
-	# delete all the symbols on the tape
-	for i in range(Symbols_On_Tape_List.size()):
-		Symbols_On_Tape_List[i].queue_free()
-	Symbols_On_Tape_List.clear()
-	Symbols_On_Tape_List_XYZ.clear()
-	
-	DC_X = -5
-	DC_Y = 1
-	DC_Z = -11
-	
-	# delete all the data cells in the transition table 
-	for i in range(matrix_Delta_UI.size()):
-		for j in range(matrix_Delta_UI[i].size()):
-			matrix_Delta_UI[i][j].queue_free()
-			
-	matrix_Delta_UI.clear()
-	matrix_Delta_Data.clear()
-	matrix_Delta_Rows_States.clear()
-	matrix_Delta_Cols_Alphabet.clear()
-	String_Input_Tuple.clear()
-	
-	# delete the UI tape alphabet and set of states elements 
-	for i in range(Transition_Table_Cols.size()):
-		Transition_Table_Cols[i].queue_free()
-	for i in range(Transition_Table_Rows.size()):
-		Transition_Table_Rows[i].queue_free()
-	Transition_Table_Cols.clear()
-	Transition_Table_Rows.clear()
-	
-	
-# key word for empty cell reset, which might not be necessary 
-	emptyCell = "{}"
-	rowsDelta = 5
-	colsDelta = 5
-	
-# Button logic Reset
-	states_valid = false
-	input_string_valid = false
-	tape_alphabet_valid = false 
-	
-# Head Pointer Coordinates Reset 
-	Head_Pointer_X = 12.635
-	Head_Pointer_Y = 1.9
-	Head_Pointer_Z = 0
-	
-	
-	# move the arrow and sumbit button up high 
-	Head_Pointer.global_transform.origin = Vector3(0, 50, 0)
-	Delta_Sumbit.global_transform.origin = Vector3(0, 50, 0)
-	
-	
-# q1 is always the starting state 
-	Current_State = "q1"
-	Head_Pointer_To_Symbol_In_Tape = 0
-	
-# Turing Machine User Phases Reset
-	Tape_Checks_Current_Head_Complete = false 
-	User_Has_Written_To_Tape_Complete = false
-	User_Has_Moved_The_Head_Pointer = false
-	Cycle_Complete = false
-	Turing_Machine_Accepted_Or_Rejected = false
-	
-	
-# logic for writing to the tape Reset
-	Symbols_Unfreeze = false
-	Is_User_Holding_Symbol = false 
-	
-	# the current tuple itself Reset
-	Curr_Delta_Tuple.clear()
-	
-	# Move arrow 
-	move_Head_Left = false 
-	move_Head_Right = false 
-	Head_Moved = false
-	
-	# delete cells in pretty transition table  
-	for i in range(Pretty_Transition_Table.size()):
-		for j in range(Pretty_Transition_Table[i].size()):
-			Pretty_Transition_Table[i][j].queue_free()
-	Pretty_Transition_Table.clear()
-	Tuple_To_Highlight_X = 0
-	Tuple_To_Highlight_Y = 0
-	
-	# Accept/Reject UI Reset
-	Reject = false
-	Accept = false
-	
-	Accept_Reject_Ref.queue_free()
-	
-	# TM UI 
-	TM_UI_Submitted = false 
-	
-	# add default langauges reset
-	Added_Lang1 = false 
-	Added_Lang2 = false
-	Added_Lang3 = false 
 	
 # END_BUTTON_RESET#######################################################################################################################
 

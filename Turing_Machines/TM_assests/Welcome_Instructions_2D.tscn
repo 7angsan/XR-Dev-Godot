@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd1rhjqs1lp7k"]
+
+[ext_resource type="Texture2D" uid="uid://b471dan4icwgp" path="res://Turing_Machines/TM_assests/TM_Welcome_Area_Assests/alan-turing-and-turing-machine.jpg" id="1_b77g2"]
+
+[node name="WelcomeInstructions2d" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(639, 360)
+texture = ExtResource("1_b77g2")

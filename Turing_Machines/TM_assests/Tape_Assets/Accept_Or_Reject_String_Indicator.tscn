@@ -8,12 +8,12 @@
 resource_local_to_scene = true
 size = Vector2(400, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ew5ml"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nhmhe"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ss58"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6dpj"]
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_ew5ml")
+albedo_texture = SubResource("ViewportTexture_nhmhe")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4fln"]
@@ -24,13 +24,13 @@ size = Vector3(400, 200, 0.02)
 resource_local_to_scene = true
 size = Vector2(300, 100)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ul4qj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3m77w"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipjvw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ysu0"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_ul4qj")
+albedo_texture = SubResource("ViewportTexture_3m77w")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svgnq"]
@@ -88,13 +88,10 @@ size = Vector2i(400, 200)
 
 [node name="AcceptReject2d" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_ble8b")]
 
-[node name="ColorRect" parent="Viewport2Din3D/Viewport/AcceptReject2d/Control/ColorRect2" index="0"]
-color = Color(0.485884, 0.351124, 0.985972, 1)
-
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("QuadMesh_rcgnl")
-surface_material_override/0 = SubResource("StandardMaterial3D_3ss58")
+surface_material_override/0 = SubResource("StandardMaterial3D_w6dpj")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 screen_size = Vector2(400, 200)
@@ -116,7 +113,7 @@ size = Vector2i(300, 100)
 [node name="Screen" parent="Viewport2Din3D2" index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("QuadMesh_rwu24")
-surface_material_override/0 = SubResource("StandardMaterial3D_ipjvw")
+surface_material_override/0 = SubResource("StandardMaterial3D_2ysu0")
 
 [node name="StaticBody3D" parent="Viewport2Din3D2" index="2"]
 screen_size = Vector2(300, 100)
