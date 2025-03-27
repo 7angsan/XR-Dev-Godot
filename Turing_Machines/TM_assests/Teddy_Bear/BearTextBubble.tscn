@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://yceb2e6mqdwl"]
+
+[node name="BearTextBubble" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 300.0
+offset_bottom = 125.0
+color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 294.0
+offset_bottom = 118.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 287.0
+offset_bottom = 112.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+text = "Welcome! Enter states in the form:
+q1 q2 ... qf
+Remember, q1 is starting state.
+qf is final state. "

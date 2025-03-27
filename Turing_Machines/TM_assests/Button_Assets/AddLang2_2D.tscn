@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dhsibar45gmw3"]
+
+[node name="AddLang12d" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 200.0
+color = Color(0.529634, 0.115089, 0.0975306, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 289.0
+offset_bottom = 186.0
+color = Color(0.636409, 0.215188, 0.253084, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 18.0
+offset_right = 267.0
+offset_bottom = 90.0
+text = "Requirements:
+States: {q1,q2,qf}
+Tape Alphabet: {0,1,X,Y}"
+
+[node name="Button" type="Button" parent="Control/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 104.0
+offset_right = 256.0
+offset_bottom = 145.0
+text = "Add Language: 01*0"

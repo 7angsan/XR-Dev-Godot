@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://poxg486d7xf8"]
+
+[node name="Cdtdc2d" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 301.0
+offset_bottom = 199.0
+
+[node name="Panel" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.02
+anchor_bottom = 1.015
+offset_right = -8.01999
+offset_bottom = 0.0149994
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 288.0
+offset_bottom = 190.0
+color = Color(0.412152, 0.412152, 0.412152, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/ColorRect"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 305.0
+offset_bottom = 164.0
+theme_override_font_sizes/normal_font_size = 55
+text = "Null"

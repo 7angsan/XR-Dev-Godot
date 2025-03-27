@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://de6tlnqpr47dw"]
+
+[node name="DRC" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 309.0
+offset_bottom = 53.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 51.0
+theme_override_font_sizes/normal_font_size = 38
+text = "blank"

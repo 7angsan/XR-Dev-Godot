@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=3 uid="uid://4m61qerj4gba"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_numr3"]
+[ext_resource type="PackedScene" uid="uid://cxop1vhs4ecgb" path="res://Turing_Machines/TM_assests/V_D_T_Button2d.tscn" id="2_d4q7x"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_o0epo"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2kr7q"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fbjj"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_2kr7q")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odwcl"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0p6tp"]
+size = Vector3(1.5, 1, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sq5qu"]
+size = Vector3(1.5, 1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82ogf"]
+albedo_color = Color(0.165638, 0.000318361, 0.396954, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lyxkw"]
+size = Vector3(1.5, 1, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8iwo"]
+size = Vector3(1.5, 1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jax04"]
+albedo_color = Color(0.164706, 0, 0.396078, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_550e5"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i6bdg"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5afbf"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltyc8"]
+albedo_color = Color(0, 0.667499, 1.34766e-06, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc3rn"]
+albedo_color = Color(0.818716, 0.756386, 0, 1)
+
+[node name="ValidateDeltaTableButton" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.512683, 0)
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_numr3")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.972268, 0)
+screen_size = Vector2(300, 200)
+
+[node name="VDTButton2d" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_d4q7x")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.17583, 0)
+mesh = SubResource("QuadMesh_o0epo")
+surface_material_override/0 = SubResource("StandardMaterial3D_2fbjj")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_odwcl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_0p6tp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_sq5qu")
+surface_material_override/0 = SubResource("StandardMaterial3D_82ogf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0037, -0.127182)
+shape = SubResource("BoxShape3D_lyxkw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
+mesh = SubResource("BoxMesh_h8iwo")
+surface_material_override/0 = SubResource("StandardMaterial3D_jax04")
+
+[node name="HeadLight1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0110644, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadLight1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617178, 1.6262, -0.136058)
+shape = SubResource("BoxShape3D_550e5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HeadLight1/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, -0.0100529, -0.999949, 0, 0.999949, -0.0100529, 0.00103801, -0.0286703, 0)
+mesh = SubResource("CylinderMesh_i6bdg")
+surface_material_override/0 = SubResource("StandardMaterial3D_5afbf")
+
+[node name="HeadLight2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618746, 0.00713313, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadLight2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617178, 1.6262, -0.136058)
+shape = SubResource("BoxShape3D_550e5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HeadLight2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, -0.0100529, -0.999949, 0, 0.999949, -0.0100529, 0.00103801, -0.0286703, 0)
+mesh = SubResource("CylinderMesh_i6bdg")
+surface_material_override/0 = SubResource("StandardMaterial3D_ltyc8")
+
+[node name="HeadLight3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20195, 0.00713307, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadLight3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617178, 1.6262, -0.136058)
+shape = SubResource("BoxShape3D_550e5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HeadLight3/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, -0.0100529, -0.999949, 0, 0.999949, -0.0100529, 0.00103801, -0.0286703, 0)
+mesh = SubResource("CylinderMesh_i6bdg")
+surface_material_override/0 = SubResource("StandardMaterial3D_bc3rn")
+
+[editable path="Viewport2Din3D"]

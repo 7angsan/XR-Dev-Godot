@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://dy2qlamjqtirb"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_j8mo8"]
+[ext_resource type="PackedScene" uid="uid://cuma7mpyu3sac" path="res://Turing_Machines/TM_assests/Tape_Assets/RB2D.tscn" id="2_bcbr7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xphk"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpo4k"]
+size = Vector3(0.8, 1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j884j"]
+albedo_color = Color(0.371784, 0.169713, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_t0xti"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eq1l4"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo2sc"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_eq1l4")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5ei2"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hb6li"]
+size = Vector3(0.8, 0.5, 0.5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_skd4m"]
+size = Vector3(0.52, 0.5, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nitxf"]
+albedo_color = Color(0.290196, 0.00784314, 0.164706, 1)
+
+[node name="ResetButton" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6xphk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_wpo4k")
+surface_material_override/0 = SubResource("StandardMaterial3D_j884j")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_j8mo8")]
+transform = Transform3D(-0.002, 0, -1.74846e-10, -8.17669e-11, 0.00176783, 0.000935304, 1.54548e-10, 0.000935304, -0.00176783, 0, 0.756184, -0.128405)
+screen_size = Vector2(300, 200)
+
+[node name="Rb2d" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_bcbr7")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.25, 0)
+mesh = SubResource("QuadMesh_t0xti")
+surface_material_override/0 = SubResource("StandardMaterial3D_lo2sc")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_a5ei2")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721615, 0)
+shape = SubResource("BoxShape3D_hb6li")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
+transform = Transform3D(-0.00335101, 0, 0.999994, 0, 1, 0, -0.999994, 0, -0.00335101, 0, 0.0258119, 0)
+mesh = SubResource("PrismMesh_skd4m")
+surface_material_override/0 = SubResource("StandardMaterial3D_nitxf")
+
+[editable path="Viewport2Din3D"]

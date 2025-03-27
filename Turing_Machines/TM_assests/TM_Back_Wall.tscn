@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyn8mwt221jy6"]
+
+[ext_resource type="Material" uid="uid://qjejrm1ctt04" path="res://Turing_Machines/TM_assests/tape_color.tres" id="1_ktwk6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6psnb"]
+size = Vector3(12.8, 0.32, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ndi41"]
+material = ExtResource("1_ktwk6")
+size = Vector3(12.8, 0.32, 0.1)
+
+[node name="TmBackWall" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6psnb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_ndi41")

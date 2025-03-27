@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d22idr5dmv4wm"]
+
+[ext_resource type="Material" uid="uid://qjejrm1ctt04" path="res://Turing_Machines/TM_assests/tape_color.tres" id="1_ioyu8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_be65q"]
+size = Vector3(12.8, 0.01, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_67kee"]
+material = ExtResource("1_ioyu8")
+size = Vector3(12.8, 0.01, 0.3)
+
+[node name="TmFloorCeiling" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_be65q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_67kee")

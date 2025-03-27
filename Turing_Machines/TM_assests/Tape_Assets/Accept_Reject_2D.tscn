@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c05e1s5o8h0sv"]
+
+[node name="AcceptReject2d" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 403.0
+offset_bottom = 201.0
+color = Color(0.214793, 0.0789173, 0.327716, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 393.0
+offset_bottom = 191.0
+color = Color(0.485884, 0.351124, 0.985972, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 182.0
+theme_override_font_sizes/normal_font_size = 42

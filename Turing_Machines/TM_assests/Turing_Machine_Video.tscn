@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://u0qvhpf5lldg"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_nbj63"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_us3xv"]
+size = Vector3(3.5, 2.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8m5nj"]
+size = Vector3(3.5, 2.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjrf2"]
+albedo_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+
+[node name="TuringMachineVideo" type="Node3D"]
+
+[node name="Screen_Wall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Screen_Wall"]
+shape = SubResource("BoxShape3D_us3xv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Screen_Wall/CollisionShape3D"]
+mesh = SubResource("BoxMesh_8m5nj")
+surface_material_override/0 = SubResource("StandardMaterial3D_sjrf2")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_nbj63")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0.508091)
+screen_size = Vector2(300, 200)

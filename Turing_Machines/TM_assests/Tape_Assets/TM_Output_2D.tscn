@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cuwaobmss8o7g"]
+
+[node name="TmOutput2d" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 100.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+color = Color(0.409996, 0.00113195, 2.40654e-08, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 271.0
+offset_bottom = 65.0
+theme_override_font_sizes/normal_font_size = 28
+text = "TM Output:"

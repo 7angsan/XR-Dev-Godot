@@ -1,0 +1,151 @@
+[gd_scene load_steps=21 format=3 uid="uid://b6dqjfyayqv03"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_5oeru"]
+[ext_resource type="PackedScene" uid="uid://d1ss0qqcegl7d" path="res://Turing_Machines/TM_assests/State_Diagram_Assests/State_Diagram_1.tscn" id="2_yv0jx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3y1ye"]
+resource_local_to_scene = true
+size = Vector2(850, 500)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n2pof"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yo6va"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_n2pof")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkhrl"]
+resource_local_to_scene = true
+size = Vector3(850, 500, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyer3"]
+size = Vector3(0.3, 5.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_geib4"]
+size = Vector3(0.3, 5.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bhpo"]
+albedo_color = Color(0.598165, 0, 0.0387888, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ak0vi"]
+albedo_color = Color(0.6, 0, 0.0392157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6kfj"]
+size = Vector3(8.55, 0.3, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u37y5"]
+size = Vector3(8.55, 0.3, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk7hf"]
+albedo_color = Color(0.6, 0, 0.0392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxga0"]
+albedo_color = Color(0.6, 0, 0.0392157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5y0p"]
+size = Vector3(8.55, 4.9, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nrqpo"]
+size = Vector3(8.55, 4.9, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqauw"]
+albedo_color = Color(0.6, 0, 0.0392157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3t7f7"]
+size = Vector3(0.5, 6, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ie018"]
+size = Vector3(0.4, 6, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s3qi"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="StateDiagram13d" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_5oeru")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+screen_size = Vector2(850, 500)
+viewport_size = Vector2(850, 500)
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(850, 500)
+
+[node name="StateDiagram1" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_yv0jx")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_3y1ye")
+surface_material_override/0 = SubResource("StandardMaterial3D_yo6va")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(850, 500)
+viewport_size = Vector2(850, 500)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_pkhrl")
+
+[node name="BorderWalls" type="StaticBody3D" parent="."]
+
+[node name="WallL" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41919, 0, -0.235218)
+shape = SubResource("BoxShape3D_eyer3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/WallL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0108068)
+mesh = SubResource("BoxMesh_geib4")
+surface_material_override/0 = SubResource("StandardMaterial3D_0bhpo")
+
+[node name="WallR" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41066, 0, -0.235218)
+shape = SubResource("BoxShape3D_eyer3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/WallR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
+mesh = SubResource("BoxMesh_geib4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ak0vi")
+
+[node name="WallUp" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62501, -0.23493)
+shape = SubResource("BoxShape3D_v6kfj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/WallUp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029, 0.011)
+mesh = SubResource("BoxMesh_u37y5")
+surface_material_override/0 = SubResource("StandardMaterial3D_kk7hf")
+
+[node name="WallDown" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.58311, -0.23493)
+shape = SubResource("BoxShape3D_v6kfj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/WallDown"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0175614, 0.011)
+mesh = SubResource("BoxMesh_u37y5")
+surface_material_override/0 = SubResource("StandardMaterial3D_lxga0")
+
+[node name="BackWall" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.253893)
+shape = SubResource("BoxShape3D_n5y0p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.582)
+mesh = SubResource("BoxMesh_nrqpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_vqauw")
+
+[node name="LegL" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30883, -5.75828, -0.224075)
+shape = SubResource("BoxShape3D_3t7f7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/LegL"]
+mesh = SubResource("BoxMesh_ie018")
+surface_material_override/0 = SubResource("StandardMaterial3D_4s3qi")
+
+[node name="LegR" type="CollisionShape3D" parent="BorderWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.315, -5.758, -0.224)
+shape = SubResource("BoxShape3D_3t7f7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BorderWalls/LegR"]
+mesh = SubResource("BoxMesh_ie018")
+surface_material_override/0 = SubResource("StandardMaterial3D_4s3qi")
+
+[editable path="Viewport2Din3D"]
