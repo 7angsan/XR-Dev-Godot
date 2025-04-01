@@ -23,7 +23,10 @@ Currently, the application features three implemented educational modules, each 
 
 2. **Selection Sort** (Algorithms and Data Structures)
    - **Demo Mode (Tutorial Phase):** The user walks through a tutorial that explains the concept of Selection Sort and solves statically generated problems.
+     ![chrome_aHBrp3Uqsm](https://github.com/user-attachments/assets/e069cb62-a58f-42b5-9cf0-31b05f4e4dce)
    - **Interactive Mode (Problem Solving Phase):** The user must solve problems independently. To select boxes, the user must face the box, click the triggers, and move it to the intended direction.
+     ![chrome_A12GtdLXdn](https://github.com/user-attachments/assets/db27bf4c-c8c1-4ef0-9c52-352fbf256465)
+
 3. **Turing Machines** (Theory of Computation)
    - The user needs to input data (via a keyboard, not yet implemented in VR) for the Turing Machine to generate and execute results.
    ![image (1)](https://github.com/user-attachments/assets/7683e048-d8eb-4492-b849-010168659dc9)
