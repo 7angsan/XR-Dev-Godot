@@ -5,7 +5,7 @@ This documentation was written by the Capstone Team in Spring 2025. The informat
 ## Project Overview
 
 ### Description:
-This application is designed to produce educational content in Virtual Reality (VR) for University of the Philippines (UP) students enrolled in intermediate to advanced courses. The idea was inspired by Shaz Vijlee, the vice-dean of the engineering department, who noticed how students struggled with certain complex courses, especially in visualizing abstract concepts. He envisioned an interactive and immersive way to teach these high-level topics using VR technology. This codebase is led by the XR Development Team, a capstone project group. The goal of the project is to enrich the learning experience for students by using VR for educational purposes.
+This application is intended to produce educational content in VR for UP students in intermediate to advanced courses. The idea was inspired when Shaz Vijlee, the vice-dean of the engineering department, saw how students struggled in some courses moreso than others due to complexity of explaining high level topics that is hard to visualize. He envisioned a way to reproduce abstract concepts in an interactive and immersive manner through the usage of VR. The codebase is led by a capstone team: the XR Development Team. Through this project, we hope to enrich the student's learning experience.
 
 ### Features:
 
