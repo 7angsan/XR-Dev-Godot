@@ -19,18 +19,21 @@ Currently, the application features three implemented educational modules, each 
 
 1. **Trees** (Topic in Data Structures)
    - The user can interact with buttons to visualize binary trees in 3D and dynamically modify values to demonstrate how it works.
+     ![closerss](https://github.com/user-attachments/assets/70b6f399-d707-4b67-bd69-2520d6a6a023)
+
 2. **Selection Sort** (Algorithms and Data Structures)
    - **Demo Mode (Tutorial Phase):** The user walks through a tutorial that explains the concept of Selection Sort and solves statically generated problems.
    - **Interactive Mode (Problem Solving Phase):** The user must solve problems independently. To select boxes, the user must face the box, click the triggers, and move it to the intended direction.
 3. **Turing Machines** (Theory of Computation)
    - The user needs to input data (via a keyboard, not yet implemented in VR) for the Turing Machine to generate and execute results.
+   ![image (1)](https://github.com/user-attachments/assets/7683e048-d8eb-4492-b849-010168659dc9)
+   ![image](https://github.com/user-attachments/assets/090b701d-124c-4d9b-abb8-5fd61e1c8da3)
+
 
 Each module includes unique settings tailored to the content, though some features may overlap between modules when appropriate from a design standpoint.
 
 Upon running the game (see Installation Instructions for details), the player will spawn at a hub, from which teleporters connect to the respective modules.
 
-### Screenshots or Demo:
-Visual aids such as screenshots or gameplay videos (e.g., on YouTube) are recommended to help users understand what the app looks like and how it works.
 
 ## Installation Instructions
 
