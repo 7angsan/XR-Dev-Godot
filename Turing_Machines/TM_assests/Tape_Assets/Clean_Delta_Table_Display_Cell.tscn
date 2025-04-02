@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://31sxbs0ptsnt"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_teo07"]
+[ext_resource type="PackedScene" uid="uid://poxg486d7xf8" path="res://Turing_Machines/TM_assests/Tape_Assets/CDTDC2D.tscn" id="2_wiebh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yi565"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0mnba"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_555dm"]
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_0mnba")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7h3o1"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[node name="CleanDeltaTableDisplayCell" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_teo07")]
+transform = Transform3D(-0.005, 0, -4.37114e-10, 0, 0.005, 0, 4.37114e-10, 0, -0.005, 0, 0, 0)
+screen_size = Vector2(300, 200)
+transparent = 0
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+transparent_bg = false
+
+[node name="Cdtdc2d" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_wiebh")]
+
+[node name="RichTextLabel" parent="Viewport2Din3D/Viewport/Cdtdc2d/Control/Panel/ColorRect" index="0"]
+text = "
+"
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_yi565")
+surface_material_override/0 = SubResource("StandardMaterial3D_555dm")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_7h3o1")
+
+[editable path="Viewport2Din3D"]
+[editable path="Viewport2Din3D/Viewport/Cdtdc2d"]

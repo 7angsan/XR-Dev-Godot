@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvfj82laodfi1"]
+
+[ext_resource type="VideoStream" path="res://Turing_Machines/TM_assests/TM_Video_Assests/TM_Tutorial.ogv" id="1_8d3ju"]
+
+[node name="Video" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 300.0
+offset_bottom = 200.0
+stream = ExtResource("1_8d3ju")
+autoplay = true
+loop = true

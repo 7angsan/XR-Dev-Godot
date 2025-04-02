@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxitv662qgrxt"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_om630"]
+[ext_resource type="PackedScene" uid="uid://bjwnl5ovlm7st" path="res://Turing_Machines/TM_assests/TM_Welcome_Area_Assests/TM_Exp_2D.tscn" id="2_xqmsl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ur2ru"]
+size = Vector3(2.2, 2, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5gk8j"]
+size = Vector3(2.2, 2, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6t1r"]
+albedo_color = Color(0.0352491, 0.141595, 0.0352154, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5j6t8"]
+resource_local_to_scene = true
+size = Vector2(1050, 700)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_10agl"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cndfw"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_10agl")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ujh2"]
+resource_local_to_scene = true
+size = Vector3(1050, 700, 0.02)
+
+[node name="Tm_Example" type="Node3D"]
+
+[node name="BackWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
+shape = SubResource("BoxShape3D_ur2ru")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackWall/CollisionShape3D"]
+mesh = SubResource("BoxMesh_5gk8j")
+surface_material_override/0 = SubResource("StandardMaterial3D_j6t1r")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_om630")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0.156115)
+screen_size = Vector2(1050, 700)
+viewport_size = Vector2(1050, 700)
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(1050, 700)
+
+[node name="TmInfo2d" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_xqmsl")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_5j6t8")
+surface_material_override/0 = SubResource("StandardMaterial3D_cndfw")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(1050, 700)
+viewport_size = Vector2(1050, 700)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_0ujh2")
+
+[editable path="Viewport2Din3D"]

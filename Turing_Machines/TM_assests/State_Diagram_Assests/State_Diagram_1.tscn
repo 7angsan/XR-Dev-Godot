@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ss0qqcegl7d"]
+
+[ext_resource type="Texture2D" uid="uid://heto3jalaom4" path="res://Turing_Machines/TM_assests/State_Diagram_Assests/State_Diagram_1 - Copy.png" id="1_h5p4o"]
+
+[node name="StateDiagram1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(429.542, 249.35)
+scale = Vector2(1.10912, 1.02985)
+texture = ExtResource("1_h5p4o")
