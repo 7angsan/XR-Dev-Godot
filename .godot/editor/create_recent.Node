@@ -1,6 +1,9 @@
+MeshInstance3D
+Timer
+Label3D
+Panel
 CollisionShape3D
 StaticBody3D
-MeshInstance3D
 MarginContainer
 Node3D
 ColorRect
@@ -9,6 +12,3 @@ HSlider
 Button
 VBoxContainer
 Control
-CanvasLayer
-XRToolsMovementJump
-XRController3D

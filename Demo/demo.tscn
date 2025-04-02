@@ -1,23 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bthay75xesr8d"]
+[gd_scene load_steps=6 format=3 uid="uid://bthay75xesr8d"]
 
 [ext_resource type="Script" path="res://Demo/demo.gd" id="1_tlww2"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="2_aaqwp"]
 [ext_resource type="PackedScene" uid="uid://bjhtvckopygfk" path="res://Demo/Boxes/DemoCube.tscn" id="4_7v8fx"]
 [ext_resource type="PackedScene" uid="uid://d1yocvmc0ebxg" path="res://Demo/DemoUI.tscn" id="4_x0cix"]
-
-[sub_resource type="QuadMesh" id="1"]
-resource_local_to_scene = true
-size = Vector2(3, 2)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_lynbl"]
-viewport_path = NodePath("Viewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qx70"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_lynbl")
-texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="4"]
 resource_local_to_scene = true
@@ -32,17 +18,6 @@ alpha_scissor_threshold = 0.25
 unshaded = true
 filter = true
 
-[node name="Viewport" type="SubViewport" parent="."]
-disable_3d = true
-transparent_bg = true
-gui_embed_subwindows = true
-size = Vector2i(1800, 1090)
-render_target_update_mode = 1
-
-[node name="Screen" type="MeshInstance3D" parent="."]
-mesh = SubResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_6qx70")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 5242881
 collision_mask = 0
@@ -50,7 +25,7 @@ script = ExtResource("2_aaqwp")
 viewport_size = Vector2(1800, 1090)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.668612, -0.01)
 shape = SubResource("4")
 
 [node name="Demo3D" parent="." instance=ExtResource("4_7v8fx")]

@@ -1,35 +1,44 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1yocvmc0ebxg"]
 
-[ext_resource type="Script" path="res://Demo/Scripts/slider.gd" id="1_6877h"]
+[ext_resource type="PackedScene" uid="uid://7lig4pw4h8j8" path="res://Dialogue/DialogueScenes/SelectionSortDialogue.tscn" id="2_axykr"]
 
 [node name="DemoUI" type="CanvasLayer"]
 
-[node name="Control" type="Control" parent="."]
+[node name="Control2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 690.0
+offset_top = 259.0
+offset_right = -754.0
+offset_bottom = -525.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control2"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -1.017
+anchor_top = -0.213
+anchor_right = 2.143
+anchor_bottom = 2.517
+offset_left = -21.908
+offset_top = -2.952
+offset_right = -0.0680542
+offset_bottom = -0.0320435
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.701961, 0.807843, 0)
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control/ColorRect"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control2/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 448.0
-offset_top = -191.0
-offset_right = 448.0
-offset_bottom = -191.0
+offset_top = -5.0
+offset_right = 1512.0
+offset_bottom = 537.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.6)
@@ -38,54 +47,13 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/ColorRect/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Control/ColorRect/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(512, 128)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.873928, 0.59642, 0.897967, 1)
-theme_override_font_sizes/font_size = 64
-text = "Generate"
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -577.0
-offset_right = -22.0
-offset_bottom = -577.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Button" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(512, 128)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-
-[node name="TextEdit" type="TextEdit" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-placeholder_text = "Select Quantity
-"
-
-[node name="HSlider" type="HSlider" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-min_value = 2.0
-max_value = 6.0
-value = 2.0
-script = ExtResource("1_6877h")
+[node name="Dialogue" parent="Control2/ColorRect/MarginContainer2/VBoxContainer" instance=ExtResource("2_axykr")]
+offset = Vector2(475, 400)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 475, 400)
