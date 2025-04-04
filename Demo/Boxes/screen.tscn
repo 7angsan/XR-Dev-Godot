@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1d5a55k3vpua"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1yu6s"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -4.5285e-08, -1.036, 0, 1.036, -4.5285e-08, -0.278589, 0.943656, -0.000432491)
+mesh = SubResource("PlaneMesh_1yu6s")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, -4.21925e-08, 0.965251, 0, -0.965251, -4.21925e-08, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]

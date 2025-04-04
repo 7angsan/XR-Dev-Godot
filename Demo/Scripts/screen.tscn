@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://n6hhmtx7a4cj"]
+
+[ext_resource type="Script" path="res://Demo/Scripts/screen.gd" id="1_n0822"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1yu6s"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_n0822")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -4.5285e-08, -1.036, 0, 1.036, -4.5285e-08, -0.278589, 0.943656, -0.000432491)
+mesh = SubResource("PlaneMesh_1yu6s")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+
+[node name="Timer" type="Timer" parent="."]

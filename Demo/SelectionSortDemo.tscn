@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkyts3tfvwu1g"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_yjn7f"]
+[ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="2_vr3tv"]
+[ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Demo/Background/background.tscn" id="3_o3jv0"]
+[ext_resource type="PackedScene" uid="uid://bjhtvckopygfk" path="res://Demo/Boxes/DemoCube.tscn" id="4_e346x"]
+[ext_resource type="PackedScene" uid="uid://d1d5a55k3vpua" path="res://Demo/Boxes/screen.tscn" id="5_yye43"]
+[ext_resource type="ArrayMesh" uid="uid://cpn10472e6w2q" path="res://Demo/teddy1.obj" id="6_1e4d7"]
+[ext_resource type="Script" path="res://Demo/Scripts/screen.gd" id="6_owbnl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwtcy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_btqxi"]
+sky_material = SubResource("ProceduralSkyMaterial_gwtcy")
+
+[sub_resource type="Environment" id="Environment_sqty0"]
+background_mode = 2
+sky = SubResource("Sky_btqxi")
+tonemap_mode = 2
+
+[node name="SelectionSortDemo" type="Node3D"]
+script = ExtResource("1_yjn7f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sqty0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.821346, 0.494007, -0.285214, 0, 0.499998, 0.866026, 0.57043, -0.711308, 0.410672, -1.7, 3.00937, 0.3)
+light_indirect_energy = 2.0
+directional_shadow_mode = 0
+
+[node name="XROrigin3D" parent="." instance=ExtResource("2_vr3tv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.394766, 1.43853)
+current = true
+
+[node name="Background" parent="." instance=ExtResource("3_o3jv0")]
+
+[node name="cubes" parent="." instance=ExtResource("4_e346x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.647176, -0.397582)
+
+[node name="Node3D" parent="." instance=ExtResource("5_yye43")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.0506439, 1.21624, -0.061918)
+script = ExtResource("6_owbnl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.192836, 0, -0.229813, 0, 0.3, 0, 0.229813, 0, 0.192836, 0.859634, 1.09347, 0.172736)
+mesh = ExtResource("6_1e4d7")

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ibwu5"]
 [ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="1_spm5a"]
-[ext_resource type="PackedScene" uid="uid://c8063xc1xbjvy" path="res://Boxes/cube.tscn" id="3_3a5ug"]
+[ext_resource type="PackedScene" uid="uid://c8063xc1xbjvy" path="res://Demo/Boxes/cube.tscn" id="3_3a5ug"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_bpdx6"]
-[ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Background/background.tscn" id="6_m0tdn"]
+[ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Demo/Background/background.tscn" id="6_m0tdn"]
 [ext_resource type="PackedScene" uid="uid://dwyb5kn72tadd" path="res://game_ui.tscn" id="6_sd28d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia346"]

@@ -1,0 +1,280 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjhtvckopygfk"]
+
+[ext_resource type="Script" path="res://Demo/Scripts/demo_cube.gd" id="1_ni3vl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8j2w2"]
+albedo_color = Color(0.27451, 0.654902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_narct"]
+material = SubResource("StandardMaterial3D_8j2w2")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_skcaw"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Demo3D" type="Node3D"]
+script = ExtResource("1_ni3vl")
+
+[node name="Option2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.160434, 0, 0)
+visible = false
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Option2"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.000759244, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option2/MeshInstance3D1"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option2/MeshInstance3D1"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Option2"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.322929, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option2/MeshInstance3D2"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option2/MeshInstance3D2"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="Option3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316071, 0, 0)
+visible = false
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Option3"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.000759244, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option3/MeshInstance3D1"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option3/MeshInstance3D1"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Option3"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.322929, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option3/MeshInstance3D2"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option3/MeshInstance3D2"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Option3"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.683441, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option3/MeshInstance3D3"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option3/MeshInstance3D3"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="Option4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162043, 0, 0)
+visible = false
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Option4"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.000759244, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option4/MeshInstance3D1"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option4/MeshInstance3D1"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Option4"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.322929, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option4/MeshInstance3D2"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option4/MeshInstance3D2"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Option4"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.683441, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option4/MeshInstance3D3"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option4/MeshInstance3D3"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Option4"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.375929, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option4/MeshInstance3D4"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option4/MeshInstance3D4"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="Option5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00124726, 0, 0)
+visible = false
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Option5"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.000759244, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option5/MeshInstance3D1"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option5/MeshInstance3D1"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Option5"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.322929, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option5/MeshInstance3D2"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option5/MeshInstance3D2"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Option5"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.683441, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option5/MeshInstance3D3"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option5/MeshInstance3D3"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Option5"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.375929, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option5/MeshInstance3D4"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option5/MeshInstance3D4"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Option5"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.762827, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option5/MeshInstance3D5"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option5/MeshInstance3D5"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="Option6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156882, 0, 0)
+visible = false
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Option6"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -1.11604, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option6/MeshInstance3D1"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option6/MeshInstance3D1"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Option6"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.737554, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option6/MeshInstance3D2"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option6/MeshInstance3D2"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Option6"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.357258, 0.0149177, 0.00575161)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option6/MeshInstance3D3"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option6/MeshInstance3D3"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Option6"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.035335, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option6/MeshInstance3D4"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option6/MeshInstance3D4"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Option6"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.387971, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option6/MeshInstance3D5"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option6/MeshInstance3D5"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Option6"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.779623, 0.0127976, 0.00585163)
+mesh = SubResource("BoxMesh_narct")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Option6/MeshInstance3D6"]
+shape = SubResource("BoxShape3D_skcaw")
+
+[node name="Label3D" type="Label3D" parent="Option6/MeshInstance3D6"]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0.00305097, 0.00632216, -0.0520506)
+pixel_size = 0.0004
+
+[node name="DebounceTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

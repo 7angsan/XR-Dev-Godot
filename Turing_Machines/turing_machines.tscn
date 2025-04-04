@@ -46,39 +46,39 @@ glow_enabled = true
 resource_local_to_scene = true
 size = Vector2(303, 107)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j5dop"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_oqr7q"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ale18"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mbau"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_j5dop")
+albedo_texture = SubResource("ViewportTexture_oqr7q")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_454bt"]
 resource_local_to_scene = true
 size = Vector3(303, 107, 0.02)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3r4r5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_54juh"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbg5l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvrvs"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_3r4r5")
+albedo_texture = SubResource("ViewportTexture_54juh")
 texture_filter = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_3n76o"]
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vcjjy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fq16y"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu0t7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thj2s"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_vcjjy")
+albedo_texture = SubResource("ViewportTexture_fq16y")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrraf"]
@@ -89,12 +89,12 @@ size = Vector3(300, 200, 0.02)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7iejt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hhak1"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hxei"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pav0m"]
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_7iejt")
+albedo_texture = SubResource("ViewportTexture_hhak1")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pdm5p"]
@@ -105,13 +105,13 @@ size = Vector3(300, 200, 0.02)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bmicm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8rj2n"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buavu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wnus"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_bmicm")
+albedo_texture = SubResource("ViewportTexture_8rj2n")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3egwb"]
@@ -122,13 +122,13 @@ size = Vector3(300, 200, 0.02)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l7jin"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_n0j3y"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuobi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj67c"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_l7jin")
+albedo_texture = SubResource("ViewportTexture_n0j3y")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n6jq8"]
@@ -139,13 +139,13 @@ size = Vector3(300, 200, 0.02)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gkbxb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uw36g"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fstqo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16agj"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_gkbxb")
+albedo_texture = SubResource("ViewportTexture_uw36g")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jt7ml"]
@@ -156,13 +156,13 @@ size = Vector3(300, 200, 0.02)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1v7yl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q325y"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onrng"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxu65"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_1v7yl")
+albedo_texture = SubResource("ViewportTexture_q325y")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihfp6"]
@@ -200,13 +200,13 @@ albedo_color = Color(0.0393962, 0.00674247, 2.25613e-09, 1)
 resource_local_to_scene = true
 size = Vector2(1300, 700)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_noxp8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wts5i"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k018l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnr55"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_noxp8")
+albedo_texture = SubResource("ViewportTexture_wts5i")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cb3q2"]
@@ -246,14 +246,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
 
 [node name="Screen" parent="TM_Main/HeadPointer/LeftButton" index="1"]
 mesh = SubResource("QuadMesh_ljsx6")
-surface_material_override/0 = SubResource("StandardMaterial3D_ale18")
+surface_material_override/0 = SubResource("StandardMaterial3D_8mbau")
 
 [node name="CollisionShape3D" parent="TM_Main/HeadPointer/LeftButton/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_454bt")
 
 [node name="Screen" parent="TM_Main/HeadPointer/RightButton" index="1"]
 mesh = SubResource("QuadMesh_ljsx6")
-surface_material_override/0 = SubResource("StandardMaterial3D_qbg5l")
+surface_material_override/0 = SubResource("StandardMaterial3D_cvrvs")
 
 [node name="CollisionShape3D" parent="TM_Main/HeadPointer/RightButton/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_454bt")
@@ -263,7 +263,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.43
 
 [node name="Screen" parent="TM_Main/ValidateDeltaTableButton/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_3n76o")
-surface_material_override/0 = SubResource("StandardMaterial3D_uu0t7")
+surface_material_override/0 = SubResource("StandardMaterial3D_thj2s")
 
 [node name="CollisionShape3D" parent="TM_Main/ValidateDeltaTableButton/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_vrraf")
@@ -281,7 +281,7 @@ transparent_bg = false
 [node name="Screen" parent="TM_Main/TM_UI_Node" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.213, -7)
 mesh = SubResource("QuadMesh_d5ilp")
-surface_material_override/0 = SubResource("StandardMaterial3D_1hxei")
+surface_material_override/0 = SubResource("StandardMaterial3D_pav0m")
 
 [node name="StaticBody3D" parent="TM_Main/TM_UI_Node" index="2"]
 screen_size = Vector2(300, 200)
@@ -294,7 +294,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.8369
 
 [node name="Screen" parent="TM_Main/ResetButton/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_253ce")
-surface_material_override/0 = SubResource("StandardMaterial3D_buavu")
+surface_material_override/0 = SubResource("StandardMaterial3D_6wnus")
 
 [node name="CollisionShape3D" parent="TM_Main/ResetButton/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_3egwb")
@@ -304,7 +304,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.1925
 
 [node name="Screen" parent="TM_Main/AddLangauge1Button/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d0yax")
-surface_material_override/0 = SubResource("StandardMaterial3D_nuobi")
+surface_material_override/0 = SubResource("StandardMaterial3D_pj67c")
 
 [node name="CollisionShape3D" parent="TM_Main/AddLangauge1Button/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_n6jq8")
@@ -314,7 +314,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.7643
 
 [node name="Screen" parent="TM_Main/AddLangauge1Button2/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_ynai8")
-surface_material_override/0 = SubResource("StandardMaterial3D_fstqo")
+surface_material_override/0 = SubResource("StandardMaterial3D_16agj")
 
 [node name="CollisionShape3D" parent="TM_Main/AddLangauge1Button2/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_jt7ml")
@@ -324,7 +324,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.2805
 
 [node name="Screen" parent="TM_Main/AddLangauge1Button3/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_1y401")
-surface_material_override/0 = SubResource("StandardMaterial3D_onrng")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxu65")
 
 [node name="CollisionShape3D" parent="TM_Main/AddLangauge1Button3/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_ihfp6")
@@ -378,7 +378,7 @@ size = Vector2i(1300, 700)
 
 [node name="Screen" parent="TM_Main/Instructions_Welcome_Area/UI_Welcome" index="1"]
 mesh = SubResource("QuadMesh_te34f")
-surface_material_override/0 = SubResource("StandardMaterial3D_k018l")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnr55")
 
 [node name="StaticBody3D" parent="TM_Main/Instructions_Welcome_Area/UI_Welcome" index="2"]
 screen_size = Vector2(1300, 700)

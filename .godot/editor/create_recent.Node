@@ -1,8 +1,9 @@
+XRToolsSceneBase
+Node3D
 CollisionShape3D
 StaticBody3D
 MeshInstance3D
 MarginContainer
-Node3D
 ColorRect
 TextEdit
 HSlider
@@ -11,4 +12,3 @@ VBoxContainer
 Control
 CanvasLayer
 XRToolsMovementJump
-XRController3D

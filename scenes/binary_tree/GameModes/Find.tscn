@@ -1,0 +1,145 @@
+[gd_scene load_steps=23 format=3 uid="uid://cxkdts2ktpnxt"]
+
+[ext_resource type="PackedScene" uid="uid://drj68qol07w33" path="res://scenes/binary_tree/XRTutorial/xr_origin_3d.tscn" id="1_8md5u"]
+[ext_resource type="Script" uid="uid://cmgenkco3m4rg" path="res://scenes/binary_tree/GameModes/Find.gd" id="2_xcyib"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_qy1cm"]
+[ext_resource type="PackedScene" uid="uid://iw1ncqmelmao" path="res://scenes/binary_tree/GameModes/FindUI.tscn" id="4_3as6l"]
+[ext_resource type="Script" uid="uid://v71dajkcyb1p" path="res://scenes/binary_tree/Scripts/TreeRenderer.gd" id="5_yw32i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xqhsd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_f713i"]
+sky_material = SubResource("ProceduralSkyMaterial_xqhsd")
+
+[sub_resource type="Environment" id="Environment_3x6pi"]
+background_mode = 2
+sky = SubResource("Sky_f713i")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sj4nm"]
+size = Vector3(160, 0.1, 160)
+
+[sub_resource type="BoxMesh" id="BoxMesh_drp3y"]
+size = Vector3(160, 0.1, 160)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12g65"]
+albedo_color = Color(0.605274, 0.605274, 0.605274, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_62jnx"]
+material = SubResource("StandardMaterial3D_12g65")
+size = Vector3(40, 2, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdnj3"]
+size = Vector3(40, 2, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yw32i"]
+material = SubResource("StandardMaterial3D_12g65")
+size = Vector3(40, 60, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yw32i"]
+size = Vector3(40, 60, 2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_yw32i"]
+resource_local_to_scene = true
+size = Vector2(3, 1.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yw32i"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw32i"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_yw32i")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4n8v"]
+resource_local_to_scene = true
+size = Vector3(3, 1.5, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voxj2"]
+albedo_color = Color(0.603922, 0.603922, 0.603922, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hun4h"]
+material = SubResource("StandardMaterial3D_voxj2")
+size = Vector3(160, 60, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5c2r8"]
+size = Vector3(160, 60, 2)
+
+[node name="FindRoom" type="Node3D"]
+script = ExtResource("2_xcyib")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_8md5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665118, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3x6pi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_sj4nm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
+mesh = SubResource("BoxMesh_drp3y")
+
+[node name="Platform1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0402886, 0.506033, -13.8674)
+mesh = SubResource("BoxMesh_62jnx")
+
+[node name="platform1staticbody" type="StaticBody3D" parent="Platform1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform1/platform1staticbody"]
+shape = SubResource("BoxShape3D_pdnj3")
+
+[node name="Platform2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 0.0402886, 11.5246, -19.0863)
+mesh = SubResource("BoxMesh_yw32i")
+
+[node name="platform2staticbody" type="StaticBody3D" parent="Platform2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2/platform2staticbody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390448, 0.0746593, -0.00255394)
+shape = SubResource("BoxShape3D_yw32i")
+
+[node name="FindMenu" parent="." instance=ExtResource("3_qy1cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771225, -7.84956)
+screen_size = Vector2(3, 1.5)
+collision_layer = 5242882
+scene = ExtResource("4_3as6l")
+viewport_size = Vector2(1920, 1080)
+
+[node name="Viewport" parent="FindMenu" index="0"]
+size = Vector2i(1920, 1080)
+
+[node name="Screen" parent="FindMenu" index="1"]
+mesh = SubResource("QuadMesh_yw32i")
+surface_material_override/0 = SubResource("StandardMaterial3D_yw32i")
+
+[node name="StaticBody3D" parent="FindMenu" index="2"]
+collision_layer = 5242882
+screen_size = Vector2(3, 1.5)
+viewport_size = Vector2(1920, 1080)
+
+[node name="CollisionShape3D" parent="FindMenu/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_b4n8v")
+
+[node name="TreeRenderer" type="Node3D" parent="."]
+script = ExtResource("5_yw32i")
+
+[node name="OverHang" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 27.5, 0)
+mesh = SubResource("BoxMesh_hun4h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OverHang"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OverHang/StaticBody3D"]
+shape = SubResource("BoxShape3D_5c2r8")
+
+[editable path="FindMenu"]

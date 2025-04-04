@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://iw1ncqmelmao"]
+
+[sub_resource type="Theme" id="Theme_7hdp1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppbb6"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g51rf"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.994141, 0.994141, 0.994141, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="FindUI" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 1919.0
+offset_bottom = 1088.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 190.0
+offset_right = 1564.0
+offset_bottom = 686.0
+scale = Vector2(1.21989, 1.76385)
+theme_override_constants/separation = 100
+
+[node name="FindLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7hdp1")
+theme_override_font_sizes/font_size = 90
+text = "FIND:"
+
+[node name="ArrayListLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "ARRAYLIST: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 2
+offset_left = 598.0
+offset_top = 46.0
+offset_right = 1494.0
+offset_bottom = 121.0
+theme_override_constants/separation = 50
+
+[node name="NewTreeButton" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppbb6")
+text = "NEW TREE"
+
+[node name="UndoButton" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51rf")
+text = "UNDO"
+
+[node name="ExitButton" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51rf")
+text = "EXIT"

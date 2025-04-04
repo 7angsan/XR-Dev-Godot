@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://drj68qol07w33"]
+
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_c1a1p"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_8x5d1"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="2_ivc2g"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_aq772"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_ma4k8"]
+[ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="5_gejxg"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_xov3y"]
+[ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="6_eok6f"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_m5v12"]
+[ext_resource type="Script" uid="uid://bntejr6qy7ejg" path="res://scenes/binary_tree/vr_pointer.gd" id="7_iorio"]
+[ext_resource type="Material" uid="uid://bxtue05m8sq42" path="res://addons/godot-xr-tools/materials/pointer.tres" id="8_e4dll"]
+[ext_resource type="Script" uid="uid://buna6mdhbpoae" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="9_cb5m3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aspen"]
+resource_local_to_scene = true
+material = ExtResource("8_e4dll")
+size = Vector3(0.002, 0.002, 50)
+subdivide_depth = 20
+
+[sub_resource type="Resource" id="Resource_pdthr"]
+script = ExtResource("9_cb5m3")
+flags = 0
+move_drag = 5.0
+move_traction = 30.0
+stop_on_slope = true
+move_max_slope = 45.0
+jump_max_slope = 45.0
+jump_velocity = 3.0
+bounciness = 0.0
+bounce_threshold = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig0g5"]
+resource_local_to_scene = true
+material = ExtResource("8_e4dll")
+size = Vector3(0.002, 0.002, 30)
+subdivide_depth = 20
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="RightHand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="RightHand" instance=ExtResource("2_8x5d1")]
+
+[node name="MovementTurn" parent="RightHand" instance=ExtResource("4_ma4k8")]
+turn_mode = 1
+step_turn_angle = 45.0
+
+[node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_aq772")]
+
+[node name="MovementJump" parent="RightHand" instance=ExtResource("6_eok6f")]
+jump_button_action = "ax_button"
+
+[node name="MovementClimb" parent="RightHand" instance=ExtResource("5_gejxg")]
+
+[node name="FunctionPointer" parent="RightHand" instance=ExtResource("6_m5v12")]
+distance = 50.0
+collision_mask = 2
+
+[node name="RayCast" parent="RightHand/FunctionPointer" index="0"]
+target_position = Vector3(0, 0, -50)
+collision_mask = 2
+collide_with_areas = true
+script = ExtResource("7_iorio")
+
+[node name="Laser" parent="RightHand/FunctionPointer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -25)
+mesh = SubResource("BoxMesh_aspen")
+
+[node name="PlayerBody" parent="." instance=ExtResource("5_xov3y")]
+physics = SubResource("Resource_pdthr")
+ground_control = 2
+
+[node name="LeftHand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("1_c1a1p")]
+
+[node name="MovementDirect" parent="LeftHand" instance=ExtResource("2_ivc2g")]
+strafe = true
+
+[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_aq772")]
+
+[node name="MovementClimb" parent="LeftHand" instance=ExtResource("5_gejxg")]
+
+[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("6_m5v12")]
+collision_mask = 2
+
+[node name="RayCast" parent="LeftHand/FunctionPointer" index="0"]
+target_position = Vector3(0, 0, -30)
+collision_mask = 2
+script = ExtResource("7_iorio")
+
+[node name="Laser" parent="LeftHand/FunctionPointer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -15)
+mesh = SubResource("BoxMesh_ig0g5")
+
+[editable path="RightHand/FunctionPointer"]
+[editable path="LeftHand/FunctionPointer"]

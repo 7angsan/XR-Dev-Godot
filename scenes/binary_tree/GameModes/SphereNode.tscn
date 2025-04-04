@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5wjn1uwk3r3h"]
+
+[ext_resource type="Script" uid="uid://bd07l3enfqo7" path="res://scenes/binary_tree/GameModes/SphereNode.gd" id="1_aqyyb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ovks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqyyb"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.203922, 1, 0.419608, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iwe22"]
+
+[node name="SphereNode" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_aqyyb")
+
+[node name="SphereMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0ovks")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqyyb")
+
+[node name="ValueLabel" type="Label3D" parent="."]
+text = "??"
+font_size = 80
+outline_size = 30
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_iwe22")

@@ -1,0 +1,170 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3knokvu8x851"]
+
+[ext_resource type="Script" uid="uid://bjguoydlo7cj7" path="res://scenes/binary_tree/binary_tree_menu.gd" id="1_wo28s"]
+[ext_resource type="Script" uid="uid://bntejr6qy7ejg" path="res://scenes/binary_tree/vr_pointer.gd" id="2_4bc7e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8kme"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2hno"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umtn7"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.994141, 0.994141, 0.994141, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rx4h"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mw477"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r44sl"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="QuadMesh" id="QuadMesh_urmsw"]
+size = Vector2(3, 3)
+
+[node name="BinaryTreeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wo28s")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1929.0
+offset_bottom = 1076.0
+color = Color(0.19489, 0.465034, 0.467687, 1)
+
+[node name="Title Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 12.0
+offset_right = 690.0
+offset_bottom = 35.0
+scale = Vector2(5.48, 7.28)
+text = "BINARY SEARCH TREES
+"
+label_settings = SubResource("LabelSettings_s8kme")
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.05
+offset_left = 817.0
+offset_top = 325.0
+offset_right = 1183.68
+offset_bottom = 998.0
+theme_override_constants/separation = 30
+
+[node name="Tutorial" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_y2hno")
+text = "TUTORIAL"
+
+[node name="Insert" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_umtn7")
+text = "INSERT"
+
+[node name="Find" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5rx4h")
+text = "FIND"
+
+[node name="Delete" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_mw477")
+text = "DELETE"
+
+[node name="Playground" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_r44sl")
+text = "PLAYGROUND"
+
+[node name="MainScene" type="Node3D" parent="."]
+
+[node name="BinaryTreeDisplay" type="Node3D" parent="MainScene"]
+
+[node name="BinaryTreeViewPort" type="SubViewport" parent="MainScene/BinaryTreeDisplay"]
+
+[node name="XRPlayer" type="XROrigin3D" parent="MainScene"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="MainScene/XRPlayer"]
+
+[node name="XRController3D" type="XRController3D" parent="MainScene/XRPlayer"]
+
+[node name="VRPointer" type="RayCast3D" parent="MainScene/XRPlayer"]
+target_position = Vector3(0, 0, -5)
+collision_mask = 8
+collide_with_areas = true
+debug_shape_custom_color = Color(0.85098, 0, 0, 1)
+script = ExtResource("2_4bc7e")
+
+[node name="BinaryTreeScreen" type="MeshInstance3D" parent="MainScene"]
+mesh = SubResource("QuadMesh_urmsw")
+skeleton = NodePath("../BinaryTreeDisplay")
+
+[connection signal="pressed" from="ButtonContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonContainer/Insert" to="." method="_on_insert_pressed"]
+[connection signal="pressed" from="ButtonContainer/Find" to="." method="_on_find_pressed"]
+[connection signal="pressed" from="ButtonContainer/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="ButtonContainer/Playground" to="." method="_on_playground_pressed"]

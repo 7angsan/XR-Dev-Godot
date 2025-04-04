@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://losd4h66uwgw"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ssrdg"]
+[ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="2_n73fh"]
+[ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Demo/Background/background.tscn" id="3_3ljbe"]
+[ext_resource type="PackedScene" uid="uid://bthay75xesr8d" path="res://Demo/demo.tscn" id="4_0t7qt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ia346"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_btqxi"]
+sky_material = SubResource("ProceduralSkyMaterial_ia346")
+
+[sub_resource type="Environment" id="Environment_ytw6k"]
+background_mode = 2
+sky = SubResource("Sky_btqxi")
+tonemap_mode = 2
+
+[node name="DEMOMAIN" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20892, 0)
+script = ExtResource("1_ssrdg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ytw6k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.821346, 0.494007, -0.285214, 0, 0.499998, 0.866026, 0.57043, -0.711308, 0.410672, -1.7, 3.00937, 0.3)
+light_indirect_energy = 2.0
+directional_shadow_mode = 0
+
+[node name="XROrigin3D" parent="." instance=ExtResource("2_n73fh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428343, 1.43853)
+current = true
+
+[node name="Background" parent="." instance=ExtResource("3_3ljbe")]
+
+[node name="DEMO" parent="." instance=ExtResource("4_0t7qt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.373447, -1.77185)
