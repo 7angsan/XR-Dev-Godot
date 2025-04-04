@@ -1,5 +1,6 @@
-XRToolsSceneBase
 Node3D
+XRToolsSceneBase
+DemoSceneBase
 CollisionShape3D
 StaticBody3D
 MeshInstance3D
@@ -11,4 +12,3 @@ Button
 VBoxContainer
 Control
 CanvasLayer
-XRToolsMovementJump

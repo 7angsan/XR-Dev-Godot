@@ -1,0 +1,132 @@
+[gd_scene load_steps=22 format=3 uid="uid://dcn5kao3l0vqn"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ypcdh"]
+[ext_resource type="Script" path="res://InteractiveSelectionSort/interactive_mode.gd" id="2_0d4kb"]
+[ext_resource type="PackedScene" uid="uid://djkui8l4yreqh" path="res://cube.tscn" id="2_m7ltm"]
+[ext_resource type="PackedScene" uid="uid://c3lu6fo0no58d" path="res://temp.tscn" id="3_tjc83"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_ky6e7"]
+[ext_resource type="PackedScene" uid="uid://bfqmssnbcdbi6" path="res://InteractiveSelectionSort/Teddy_Bear_Model_SelectionSort.tscn" id="5_3x07f"]
+[ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="6_ny34i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1w1p"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2aceu"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tfrr"]
+albedo_color = Color(0.345448, 0.377812, 0.341497, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tabqq"]
+material = SubResource("StandardMaterial3D_4tfrr")
+size = Vector3(4, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0tev"]
+size = Vector3(4, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_og0qi"]
+resource_local_to_scene = true
+size = Vector2(300, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_chkd1"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b82ql"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_chkd1")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5hhk"]
+resource_local_to_scene = true
+size = Vector3(300, 200, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iyj6l"]
+size = Vector3(1, 1.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxmtx"]
+size = Vector3(1, 1.5, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cokfg"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_i8x68"]
+sky_material = SubResource("ProceduralSkyMaterial_cokfg")
+
+[sub_resource type="Environment" id="Environment_jqjjl"]
+background_mode = 2
+sky = SubResource("Sky_i8x68")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="InteractiveMain" type="Node3D"]
+script = ExtResource("1_ypcdh")
+
+[node name="Main" type="Node3D" parent="."]
+script = ExtResource("2_0d4kb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.740889, 0)
+shape = SubResource("BoxShape3D_j1w1p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7583, -0.250031, -0.130043)
+mesh = SubResource("BoxMesh_2aceu")
+
+[node name="Table" type="MeshInstance3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957467, -0.503222, -0.00129414)
+mesh = SubResource("BoxMesh_tabqq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Main/Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/StaticBody3D"]
+shape = SubResource("BoxShape3D_j0tev")
+
+[node name="PickableObject" parent="Main" instance=ExtResource("2_m7ltm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30953, 0.620011, -3.64741)
+
+[node name="Temp" parent="Main" instance=ExtResource("3_tjc83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91477, -0.136714, -0.239316)
+
+[node name="Regenerate" parent="Main" instance=ExtResource("4_ky6e7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.790028, 1.27744, -2.65574)
+screen_size = Vector2(300, 200)
+
+[node name="Screen" parent="Main/Regenerate" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36999, 0.0688934)
+mesh = SubResource("QuadMesh_og0qi")
+surface_material_override/0 = SubResource("StandardMaterial3D_b82ql")
+
+[node name="StaticBody3D" parent="Main/Regenerate" index="2"]
+screen_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" parent="Main/Regenerate/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_g5hhk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14893, -0.234234, -3.3658)
+mesh = SubResource("BoxMesh_iyj6l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Main/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_rxmtx")
+
+[node name="TeddyBearModel" parent="Main" instance=ExtResource("5_3x07f")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.05125, 0, -2.06192)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jqjjl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="XROrigin3D" parent="." instance=ExtResource("6_ny34i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698, -0.239789, 3.087)
+
+[editable path="Main/Regenerate"]
