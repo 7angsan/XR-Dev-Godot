@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://k1t35ww0a6nd"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_g5bdr"]
+[ext_resource type="Script" uid="uid://c6l2b1rg7wmh" path="res://main.gd" id="1_g5bdr"]
 [ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="1_spm5a"]
 [ext_resource type="PackedScene" uid="uid://c8063xc1xbjvy" path="res://Demo/Boxes/cube.tscn" id="3_3a5ug"]
-[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://Demo/addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_bpdx6"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_bpdx6"]
 [ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Demo/Background/background.tscn" id="6_m0tdn"]
 [ext_resource type="PackedScene" uid="uid://dwyb5kn72tadd" path="res://game_ui.tscn" id="6_sd28d"]
 

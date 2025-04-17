@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_m5v12"]
 [ext_resource type="Script" uid="uid://bntejr6qy7ejg" path="res://scenes/binary_tree/vr_pointer.gd" id="7_iorio"]
 [ext_resource type="Material" uid="uid://bxtue05m8sq42" path="res://addons/godot-xr-tools/materials/pointer.tres" id="8_e4dll"]
-[ext_resource type="Script" uid="uid://buna6mdhbpoae" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="9_cb5m3"]
+[ext_resource type="Script" uid="uid://cvl4yt5x7citx" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="9_cb5m3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_aspen"]
 resource_local_to_scene = true

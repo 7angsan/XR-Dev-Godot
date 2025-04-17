@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://n6hhmtx7a4cj"]
 
-[ext_resource type="Script" path="res://Demo/Scripts/screen.gd" id="1_n0822"]
+[ext_resource type="Script" uid="uid://bgh2xq0fpgjwl" path="res://Demo/Scripts/screen.gd" id="1_n0822"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1yu6s"]
 

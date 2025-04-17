@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dcn5kao3l0vqn"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ypcdh"]
-[ext_resource type="Script" path="res://InteractiveSelectionSort/interactive_mode.gd" id="2_0d4kb"]
+[ext_resource type="Script" uid="uid://cjtaxau52ngus" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ypcdh"]
+[ext_resource type="Script" uid="uid://dvl8mn4xlitvf" path="res://InteractiveSelectionSort/interactive_mode.gd" id="2_0d4kb"]
 [ext_resource type="PackedScene" uid="uid://djkui8l4yreqh" path="res://cube.tscn" id="2_m7ltm"]
 [ext_resource type="PackedScene" uid="uid://c3lu6fo0no58d" path="res://temp.tscn" id="3_tjc83"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_ky6e7"]
@@ -28,13 +28,13 @@ size = Vector3(4, 1, 1)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_chkd1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cf24j"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b82ql"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl1yq"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_chkd1")
+albedo_texture = SubResource("ViewportTexture_cf24j")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5hhk"]
@@ -99,7 +99,7 @@ screen_size = Vector2(300, 200)
 [node name="Screen" parent="Main/Regenerate" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36999, 0.0688934)
 mesh = SubResource("QuadMesh_og0qi")
-surface_material_override/0 = SubResource("StandardMaterial3D_b82ql")
+surface_material_override/0 = SubResource("StandardMaterial3D_tl1yq")
 
 [node name="StaticBody3D" parent="Main/Regenerate" index="2"]
 screen_size = Vector2(300, 200)

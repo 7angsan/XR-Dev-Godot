@@ -48,7 +48,7 @@ size = Vector2(3, 1.5)
 [sub_resource type="ViewportTexture" id="ViewportTexture_yw32i"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw32i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hun4h"]
 transparency = 1
 cull_mode = 2
 albedo_texture = SubResource("ViewportTexture_yw32i")
@@ -120,7 +120,7 @@ size = Vector2i(1920, 1080)
 
 [node name="Screen" parent="FindMenu" index="1"]
 mesh = SubResource("QuadMesh_yw32i")
-surface_material_override/0 = SubResource("StandardMaterial3D_yw32i")
+surface_material_override/0 = SubResource("StandardMaterial3D_hun4h")
 
 [node name="StaticBody3D" parent="FindMenu" index="2"]
 collision_layer = 5242882

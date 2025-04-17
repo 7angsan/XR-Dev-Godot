@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://de4uxw2mqscai"]
 
-[ext_resource type="Script" path="res://InteractiveSelectionSort/interactive_mode.gd" id="1_urdtj"]
+[ext_resource type="Script" uid="uid://dvl8mn4xlitvf" path="res://InteractiveSelectionSort/interactive_mode.gd" id="1_urdtj"]
 [ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="2_g7u26"]
 [ext_resource type="PackedScene" uid="uid://djkui8l4yreqh" path="res://cube.tscn" id="3_0877r"]
 [ext_resource type="PackedScene" uid="uid://c3lu6fo0no58d" path="res://temp.tscn" id="4_m8lmj"]
@@ -41,13 +41,13 @@ size = Vector3(4, 1, 1)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_21w0o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c4agv"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jirfc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uufga"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_21w0o")
+albedo_texture = SubResource("ViewportTexture_c4agv")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8r0yu"]
@@ -108,7 +108,7 @@ screen_size = Vector2(300, 200)
 [node name="Screen" parent="Regenerate" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36999, 0.0688934)
 mesh = SubResource("QuadMesh_60e3a")
-surface_material_override/0 = SubResource("StandardMaterial3D_jirfc")
+surface_material_override/0 = SubResource("StandardMaterial3D_uufga")
 
 [node name="StaticBody3D" parent="Regenerate" index="2"]
 screen_size = Vector2(300, 200)

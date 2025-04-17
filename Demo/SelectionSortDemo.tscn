@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://dkyts3tfvwu1g"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_yjn7f"]
+[ext_resource type="Script" uid="uid://cjtaxau52ngus" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_yjn7f"]
 [ext_resource type="PackedScene" uid="uid://0yq1auclo2lh" path="res://xr_origin.tscn" id="2_vr3tv"]
 [ext_resource type="PackedScene" uid="uid://bt4tvm1sduuxn" path="res://Demo/Background/background.tscn" id="3_o3jv0"]
 [ext_resource type="PackedScene" uid="uid://bjhtvckopygfk" path="res://Demo/Boxes/DemoCube.tscn" id="4_e346x"]
 [ext_resource type="PackedScene" uid="uid://d1d5a55k3vpua" path="res://Demo/Boxes/screen.tscn" id="5_yye43"]
 [ext_resource type="ArrayMesh" uid="uid://cpn10472e6w2q" path="res://Demo/teddy1.obj" id="6_1e4d7"]
-[ext_resource type="Script" path="res://Demo/Scripts/screen.gd" id="6_owbnl"]
+[ext_resource type="Script" uid="uid://bgh2xq0fpgjwl" path="res://Demo/Scripts/screen.gd" id="6_owbnl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwtcy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

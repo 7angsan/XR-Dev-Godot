@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bls2427w2ip2f"]
 
-[ext_resource type="Script" path="res://scenes/binary_tree/XRTutorial/raycasttutorial.gd" id="1_k8sub"]
+[ext_resource type="Script" uid="uid://d4k473s43w22x" path="res://scenes/binary_tree/XRTutorial/raycasttutorial.gd" id="1_k8sub"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_c8ofp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hlyxg"]

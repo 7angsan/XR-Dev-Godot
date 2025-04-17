@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bhh4ctieyubty"]
 
-[ext_resource type="Script" path="res://scenes/binary_tree/XRTutorial/main.gd" id="1_6w4bf"]
+[ext_resource type="Script" uid="uid://j8v8o53cd56c" path="res://scenes/binary_tree/XRTutorial/main.gd" id="1_6w4bf"]
 [ext_resource type="PackedScene" uid="uid://drj68qol07w33" path="res://scenes/binary_tree/XRTutorial/xr_origin_3d.tscn" id="2_xtf1u"]
 [ext_resource type="PackedScene" uid="uid://bi4goif8q4i7v" path="res://scenes/binary_tree/pickable_object.tscn" id="3_phnn4"]
 [ext_resource type="PackedScene" uid="uid://buaxol5vg0bs4" path="res://scenes/binary_tree/rock_climb_object.tscn" id="4_lyx38"]
@@ -67,6 +67,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 [node name="Viewport2Din3D" parent="." instance=ExtResource("5_wbxuv")]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 1.51191, -1.94365)
 screen_size = Vector2(1920, 1080)
+collision_layer = 5242887
 scene = ExtResource("6_k42uc")
 viewport_size = Vector2(1920, 1080)
 unshaded = true

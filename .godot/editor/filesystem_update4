@@ -1,4 +1,4 @@
-res://Demo/SelectionSortDemo.tscn
+res://scenes/binary_tree/XRTutorial/main.tscn
 res://openxr_action_map.tres
 res://addons/godot-xr-tools/hands/animations/left/hand_blend_tree.tres
 res://addons/godot-xr-tools/hands/animations/right/hand_blend_tree.tres
@@ -8,9 +8,10 @@ res://assets/maps/holodeck/holodeck_env.tres
 res://addons/godot-xr-tools/staging/loading_screen/loading_screen_shader.tres
 res://addons/godot-xr-tools/misc/hold_button_visualshader.tres
 res://addons/godot-xr-tools/materials/highlight.tres
+res://scenes/binary_tree/XRTutorial/main.gd
 res://main.tscn
 res://scenes/main_menu/main_menu_level.tscn
-res://InteractiveMode.tscn
+res://InteractiveSelectionSort/InteractiveMode.tscn
 res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn
 res://assets/maps/holodeck_map.tscn
 res://assets/maps/holodeck/holodeck_wall.tscn
@@ -21,10 +22,14 @@ res://Turing_Machines/turing_machines.tscn
 res://scenes/binary_tree/XRTutorial/BinaryMain.tscn
 res://Demo/demomain.tscn
 res://Demo/demo.tscn
+res://Demo/SelectionSortDemo.tscn
 res://Demo/Scripts/screen.tscn
 res://Demo/Boxes/screen.tscn
 res://assets/meshes/teleport/teleport.tscn
 res://addons/godot-xr-tools/staging/scene_base.tscn
-res://scenes/binary_tree/XRTutorial/main.tscn
-res://InteractiveSelectionSort/InteractiveMode.tscn
 res://InteractiveSelectionSort/InteractiveMain.tscn
+res://Demo/main.tscn
+res://scenes/binary_tree/GameModes/Find.tscn
+res://scenes/binary_tree/XRTutorial/RayCastTutorial.tscn
+res://scenes/binary_tree/XRTutorial/xr_origin_3d.tscn
+res://scenes/binary_tree/GameModes/SphereNode.tscn
