@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgot1t612rsb0"]
+
+[ext_resource type="Texture2D" uid="uid://d28sati22oa3y" path="res://Turing_Machines/TM_assests/TM_Welcome_Area_Assests/TM_Why.png" id="1_2853w"]
+
+[node name="TmInfo2d" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(518, 319.059)
+scale = Vector2(1, 1.18635)
+texture = ExtResource("1_2853w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 6.0
+offset_top = 642.0
+offset_right = 1044.0
+offset_bottom = 694.0
+text = "Source: geeksforgeeks"

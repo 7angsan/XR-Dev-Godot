@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cuma7mpyu3sac"]
+
+[node name="Rb2d" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 202.0
+color = Color(0.262526, 0.0110654, 0.658964, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 285.0
+offset_bottom = 188.0
+color = Color(0.511363, 2.40654e-08, 0.258314, 1)
+
+[node name="RichTextLabel" type="Button" parent="Control/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 58.0
+offset_right = 252.0
+offset_bottom = 117.0
+text = "Reset TM Language"

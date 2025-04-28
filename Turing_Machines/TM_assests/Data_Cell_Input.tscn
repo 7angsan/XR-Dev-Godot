@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dcbfjtls71ahf"]
+
+[node name="DataCellInput" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 200.0
+color = Color(0.432043, 0, 0.240106, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 288.0
+offset_bottom = 187.0
+color = Color(0.431373, 0.0588235, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 262.0
+offset_bottom = 163.0
+color = Color(0.24595, 2.5028e-05, 0.956721, 1)
+
+[node name="LineEdit" type="LineEdit" parent="Control/ColorRect2/ColorRect/ColorRect"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 45.0
+offset_right = 239.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 38
+text = "{}"
