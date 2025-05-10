@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk5vxvi5qtpl1"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_k55t6"]
+[ext_resource type="PackedScene" uid="uid://dwt2f1oeks1ed" path="res://Turing_Machines/TM_assests/TM_UI.tscn" id="2_aqfuc"]
+
+[node name="TapeInputUi" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_k55t6")]
+transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, 0, 0)
+screen_size = Vector2(1280, 768)
+scene = ExtResource("2_aqfuc")
+viewport_size = Vector2(640, 360)
+unshaded = true
+
+[node name="TmUi" parent="Viewport2Din3D" instance=ExtResource("2_aqfuc")]
+
+[editable path="Viewport2Din3D/TmUi"]

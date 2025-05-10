@@ -38,12 +38,10 @@ signal request_reset_scene(user_data)
 # warning-ignore:unused_parameter
 # gdlint:disable=unused-argument
 
-
 ## Interface
 
 func _ready() -> void:
 	pass
-
 
 # Add support for is_xr_class on XRTools classes
 func is_xr_class(name : String) -> bool:
