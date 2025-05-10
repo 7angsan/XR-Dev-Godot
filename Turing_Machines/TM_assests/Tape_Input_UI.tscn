@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk5vxvi5qtpl1"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_k55t6"]
+[ext_resource type="PackedScene" uid="uid://caqdp6ee8sswq" path="res://Turing_Machines/TM_assests/TM_UI_.tscn" id="3_m1538"]
+
+[sub_resource type="PackedScene" id="PackedScene_4emqy"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("TmUi", "Node2D", "Control", "layout_mode", "anchors_preset", "offset_right", "offset_bottom", "ColorRect", "color", "MarginContainer", "VBoxContainer", "TextEdit", "custom_minimum_size", "theme_override_font_sizes/font_size", "placeholder_text", "LineEdit", "TextEdit3", "TextEdit2", "Button", "text"),
+"node_count": 9,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 2, 2, -1, 4, 3, 0, 4, 1, 5, 2, 6, 3, 0, 1, 0, 7, 7, -1, 4, 3, 1, 5, 4, 6, 3, 8, 5, 0, 2, 0, 9, 9, -1, 3, 3, 1, 5, 6, 6, 7, 0, 3, 0, 10, 10, -1, 1, 3, 8, 0, 4, 0, 15, 11, -1, 4, 12, 9, 3, 8, 13, 10, 14, 11, 0, 4, 0, 15, 16, -1, 4, 12, 9, 3, 8, 13, 10, 14, 12, 0, 4, 0, 15, 17, -1, 4, 12, 9, 3, 8, 13, 10, 14, 13, 0, 4, 0, 18, 18, -1, 2, 3, 8, 19, 14, 0),
+"variants": [3, 0, 635.0, 365.0, 644.0, Color(0.284419, 0.000115562, 0.317501, 0.92549), 444.0, 73.0, 2, Vector2(50, 50), 11, "Enter States: ", "Enter Tape Alphabet: ", "Enter Input String Alphabet: ", "Submit {{Q},{E},{r}}"],
+"version": 3
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_qsn7u"]
+resource_local_to_scene = true
+size = Vector2(1280, 768)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_phfw7"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4ymi"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_phfw7")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhd4j"]
+resource_local_to_scene = true
+size = Vector3(1280, 768, 0.02)
+
+[node name="TapeInputUi" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_k55t6")]
+transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, 0, 0)
+screen_size = Vector2(1280, 768)
+scene = SubResource("PackedScene_4emqy")
+viewport_size = Vector2(640, 360)
+unshaded = true
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(640, 360)
+
+[node name="TmUi2" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("3_m1538")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_qsn7u")
+surface_material_override/0 = SubResource("StandardMaterial3D_o4ymi")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(1280, 768)
+viewport_size = Vector2(640, 360)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_vhd4j")
+
+[editable path="Viewport2Din3D"]
+[editable path="Viewport2Din3D/Viewport/TmUi2"]
